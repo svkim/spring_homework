@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 페이지</title>
+
+    <link rel="stylesheet" href="../css/headfoot.css">
+    <script src="js/headfoot.js"></script>
+
+
+    <!--    <style>-->
+    <!--    .container {-->
+
+    <!--        margin : 0 auto;-->
+    <!--        margin-top : 48px;-->
+    <!--        border: 10px;-->
+    <!--    }-->
+
+    <!--    .page_header {-->
+    <!--        text-align: center;-->
+    <!--    }-->
+
+    <!--    #mainHide {-->
+    <!--        margin: 10px;-->
+    <!--        border: 20px;-->
+    <!--    }-->
+
+    <!--    h1 {-->
+    <!--        margin-bottom: 35px;-->
+    <!--    }-->
+
+    <!--    table {-->
+    <!--        display: grid;-->
+    <!--        justify-items: center;-->
+    <!--        box-sizing: border-box;-->
+    <!--        border-spacing: 10px;-->
+    <!--    }-->
+
+
+    <!--    th {-->
+    <!--        padding: 2px 80px;-->
+    <!--    }-->
+
+    <!--    td {-->
+    <!--        padding : 1px 20px-->
+    <!--    }-->
+
+    <!--</style>-->
+
+    <style>
+        table {
+            width : 100%;
+            border : 1px solid #c3c3c3;
+            border-collapse : collapse;
+        }
+
+        table th {
+            border : 1px solid #c3c3c3;
+            text-align : center;
+            height : 40px;
+            background-color : #f0768b;
+            color : white;
+        }
+
+        table td {
+            border : 1px solid #c3c3c3;
+            text-align : center;
+        }
+
+        h1 {
+           margin-top : 35px
+        }
+
+
+    </style>
+
+
+
+
+</head>
+
+
+<body>
+<header>
+    <div id="header_color">
+        <div id="header_line">
+            <form action="#" class="main_selectbox">
+                <select name="" id="lang" class="main_select">
+                    <option value="Korea">한국어</option>
+                    <option value="USA">english</option>
+                    <option value="China">中國語</option>
+                    <option value="Russia">Русский</option>
+                </select>
+            </form>
+            <ul>
+                <li th:if="${nickname == null}"><a href="/login">로그인</a></li>
+                <li th:if="${nickname == null}"><a href="/join">회원가입</a></li>
+                <li th:if="${nickname != null}"><span th:text="${nickname}">사용자 닉네임</span></li>
+                <li th:if="${nickname != null}"><a href="/logout">로그아웃</a></li>
+                <li><a href="/customerCenter/main">고객센터</a></li>
+                <li><a href="#">배송안내</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="header_logo">
+        <div id="header_space">
+            <a href="/main/home">
+                <div id="logo_image"></div>
+            </a>
+            <div id="header_search">
+                <input type="search" id="header_type">
+                <button type="submit" id="header_button"></button>
+            </div>
+            <div id="header_icon">
+                <a href="/mypage/main"><div id="header_mypage"></div></a>
+                <div id="header_delivery"></div>
+                <div id="header_basket"></div>
+            </div>
+        </div>
+    </div>
+    <div class="main_menu">
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">전통기념품</a>
+                    <ul class="submenu">
+                        <li><a href="/mugunghwa/category">열쇠고리</a></li>
+                        <li><a href="/mugunghwa/category">자석</a></li>
+                        <li><a href="/mugunghwa/category">문구</a></li>
+                        <li><a href="/mugunghwa/category">카드/옆서</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">나전칠기</a>
+                    <ul class="submenu">
+                        <li><a href="/mugunghwa/category">보석함</a></li>
+                        <li><a href="/mugunghwa/category">쌍합</a></li>
+                        <li><a href="/mugunghwa/category">병풍/쟁반</a></li>
+                        <li><a href="/mugunghwa/category">자개거울</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">섬유공예</a>
+                    <ul class="submenu">
+                        <li><a href="/mugunghwa/category">티셔츠</a></li>
+                        <li><a href="/mugunghwa/category">한복인형</a></li>
+                        <li><a href="/mugunghwa/category">한복액자</a></li>
+                        <li><a href="/mugunghwa/category">와인커버</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">목공예</a>
+                    <ul class="submenu">
+                        <li><a href="/mugunghwa/category">전통탈</a></li>
+                        <li><a href="/mugunghwa/category">탈액자</a></li>
+                        <li><a href="/mugunghwa/category">오리원앙</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">금속공예</a>
+                    <ul class="submenu">
+                        <li><a href="/mugunghwa/category">문종</a></li>
+                        <li><a href="/mugunghwa/category">주물종</a></li>
+                        <li><a href="/mugunghwa/category">액자</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <hr>
+</header>
+
+
+<div style="text-align : center;">
+    <h1 >게시글 목록</h1>
+    <h2>ㅡ</h2>
+    <br>
+    <!--    <div class="row">-->
+    <!--        <div class="col">-->
+    <!--            <button class="btn btn-primary float-end"-->
+    <!--                    onclick="location.href='addForm.html'"-->
+    <!--                    th:onclick="|location.href='@{/boards/write}'|"-->
+    <!--                    type="button">글 등록</button>-->
+    <!--        </div>-->
+    <!--    </div>-->
+
+    <table style="width: 850px; margin : auto" >
+        <!--            <thead>-->
+        <tr>
+            <th style="width : 10%">#</th>
+            <th style="width : 50%">제목</th>
+            <th style="width : 20%">작성자</th>
+            <th style="width : 20%">작성일자</th>
+        </tr>
+        <!--            </thead>-->
+
+
+        <tbody>
+        <tr th:each="board : ${list}">
+
+            <td th:text="${board.boardId}">글번호</td>
+
+            <!--localhost:8080/board/view>boardId = board.boardId = 1~끝번호-->
+            <td>
+                <a th:text="${board.boardTitle}"
+                   th:href="@{/board/view(boardId=${board.boardId})}">제목</a>
+            </td>
+
+            <!--      글내용이랑 교체할 것          <td th:text="${board.customerId}">작성자</td>-->
+
+            <td  th:text="${username}">작성자</td>
+
+
+            <td th:text="${#dates.format(board.boardDate, 'yyyy-MM-dd HH:mm')}">글등록일</td>
+
+        </tr>
+        </tbody>
+    </table>
+
+    <!--------------------------------------->
+
+    <a th:href="@{/board/list(page=0)}"> << </a>
+
+    <!--        <a th:href="${firstPage} ? '#' : @{/board/list(page=${number}) }"> 이전 </a>-->
+
+
+    <th:block th:each="page : ${#numbers.sequence(startPage, lastPage)}">
+        <!-----------------현제페이지가 아닌경우 a테그 이동가능 (이때 page=1 부터 쿼리 스트링) ------------ param. 파라미터  쿼리 스트링 중에 특정 값 을 넣어 넘겨줌 a링크에 물려있음  ------->
+        <a th:if="${page != firstPage}" th:href="@{/board/list(page = ${page - 1}, searchKeyword = ${param.searchKeyword})}"
+           th:text="${page}"></a>
+
+        <strong th:if="${page == firstPage}" th:text="${page}" style="color : red "></strong>
+
+    </th:block>
+
+    <!--        <a th:href="${firstPage} ? '#' : @{/board/list(page=${number})}"> 다음 </a>-->
+
+    <a th:href="@{/board/list(page=${list.TotalPages} -1 )}"> >> </a>
+
+
+    <form th:action="@{/board/list}" method="get">
+        <input type="text" name="searchKeyword" placeholder="검색할 제목을 선택하세요">
+        <button type="submit">검색</button>
+        <a href="/board/write" class="btn btn_block">등록</a>
+    </form>
+</div>
+</div>
+
+
+<footer>
+    <div id="footer1_main">
+        <div id ="footer1_grid">
+            <div class="footer1_gridbox">
+                <div class="footer_logo"></div>
+            </div>
+            <div class="footer1_gridbox">
+                <p class="footer_text">상호명 : 한국만예사 ㅣ 대표자 : 윤주상  ㅣ 전화 : 051-123-4567 ㅣ
+                    팩스 : 051-123-4567 ㅣ 이메일: wntkdrbtkd1@gmail.com
+                </p>
+                <p class="footer_text">사무실 주소 : 서울시 종로구 삼일대로30길 37 4층 ㅣ 사업자등록번호 : 560-08-02146
+                    ㅣ 통신판매업신고번호 : 2022-서울종로-1485호
+                </p>
+                <p class="footer_text">
+                    매장주소 : 서울시 중구 소공로1-2 소공지하쇼핑센터 15호 ㅣ 개인정보관리책임자 : 윤주상
+                </p>
+            </div>
+            <div class="footer1_gridbox">
+                <p class="footer_link"><a href="#">이용약관</a></p>
+                <p class="footer_link">l</p>
+                <p class="footer_link"><a href="#"> 개인정보처리방침</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+</body>
+</html>
+
+
+<!--    <style>-->
+
+<!--     .container {-->
+<!--            width : 580px;-->
+<!--            margin : 0 auto;-->
+<!--            margin-top " 48px;-->
+<!--     }-->
+
+<!--    </style>-->
+
+<!--<body>-->
+
+
+<!--    <div class="container">-->
+<!--        <div class="page_header">-->
+<!--           <h1>게시글 목록</h1>-->
+<!--        </div>-->
+
+<!--        <div class="pull_right" style="width:100px; margin: 10px 0;">-->
+
+<!--        </div>-->
+<!--        </br>-->
+<!--        <div id="mainHide">-->
+<!--            <table class="table table_hover">-->
+<!--                <thead>-->
+<!--                    <tr>-->
+<!--                        <th class="col_md_1">#</th>-->
+<!--                        <th class="col_md_2">제목</th>-->
+<!--                        <th class="col_md_5">내용</th>-->
+<!--                        <th class="col_md_2">작성일자</th>-->
+<!--                    </tr>-->
+<!--                </thead>-->
+
+
+<!--            <tbody>-->
+<!--            <tr th:each="board : ${list}">-->
+
+<!--                <td th:text="${board.boardId}">글번호</td>-->
+
+<!--                &lt;!&ndash;localhost:8080/board/view>boardId = board.boardId = 1~끝번호&ndash;&gt;-->
+<!--                <td>-->
+<!--                    <a th:text="${board.boardTitle}"-->
+<!--                       th:href="@{/board/view(boardId=${board.boardId})}">제목</a>-->
+<!--                </td>-->
+
+<!--                <td th:text="${board.boardContent}">글내용</td>-->
+
+<!--                <td th:text="${#dates.format(board.boardDate, 'yyyy-MM-dd')}">글등록일</td>-->
+
+<!--            </tr>-->
+<!--            </tbody>-->
+
+<!--            </table>-->
+<!--            &lt;!&ndash;-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&ndash;&gt;-->
+<!--            <th:block th:each="page : ${#numbers.sequence(startPage, lastPage)}">-->
+<!--                &lt;!&ndash;-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;현제페이지가 아닌경우 a테그 이동가능 (이때 page=1 부터 쿼리 스트링) &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45; param. 파라미터  쿼리 스트링 중에 특정 값 을 넣어 넘겨줌 a링크에 물려있음  -&#45;&#45;&#45;&#45;&ndash;&gt;-->
+<!--                <a th:if="${page != firstPage}" th:href="@{/board/list(page = ${page - 1}, searchKeyword = ${param.searchKeyword})}"-->
+<!--                   th:text="${page}"></a>-->
+
+<!--                <strong th:if="${page == firstPage}" th:text="${page}" style="color : red "></strong>-->
+<!--            </th:block>-->
+<!--            <form th:action="@{/board/list}" method="get">-->
+<!--                <input type="text" name="searchKeyword">-->
+<!--                <button type="submit">검색</button>-->
+<!--                <a href="/board/write" class="btn btn_block">등록</a>-->
+<!--            </form>-->
+<!--    </div>-->
+
+<!--    </br>-->
+
+
+
+
+
+
+
+
+<!--&lt;!&ndash;        <table>&ndash;&gt;-->
+<!--&lt;!&ndash;            <thead>&ndash;&gt;-->
+<!--&lt;!&ndash;                <tr>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <th>글번호</th>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <th>제목</th>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <th>내용</th>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <th>작성일자</th>&ndash;&gt;-->
+<!--&lt;!&ndash;                </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;            </thead>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;            <tbody>&ndash;&gt;-->
+<!--&lt;!&ndash;                <tr th:each="board : ${list}">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    <td th:text="${board.boardId}">글번호</td>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            &lt;!&ndash;localhost:8080/board/view>boardId = board.boardId = 1~끝번호&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                    <td>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <a th:text="${board.boardTitle}"&ndash;&gt;-->
+<!--&lt;!&ndash;                           th:href="@{/board/view(boardId=${board.boardId})}">제목</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </td>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    <td th:text="${board.boardContent}">글내용</td>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    <td th:text="${#dates.format(board.boardDate, 'yyyy-MM-dd HH:mm')}">글등록일</td>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;               </tr>&ndash;&gt;-->
+<!--&lt;!&ndash;            </tbody>&ndash;&gt;-->
+<!--&lt;!&ndash;        </table>&ndash;&gt;-->
+
+<!--    </div>-->
+<!--</body>-->
+<!--</html>-->

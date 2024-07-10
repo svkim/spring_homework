@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>제품 목록</title>
+</head>
+<body>
+<h1>제품 목록</h1>
+<a href="/register/new">새 제품 등록</a>
+<table border="1">
+    <thead>
+    <tr>
+        <th>제품 ID</th>
+        <th>제품명</th>
+        <th>이미지</th>
+        <th>원가</th>
+        <th>할인가</th>
+        <th>제조사</th>
+        <th>크기</th>
+        <th>품질</th>
+        <th>재고</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="register : ${registers}">
+        <td th:text="${register.id}"></td>
+        <td th:text="${register.prdname}"></td>
+        <td><img th:src="@{/uploads/{filename}(filename=${register.prdimg})}" alt="이미지" width="100px"></td>
+        <td th:text="${register.orginalprice}"></td>
+        <td th:text="${register.discountprice}"></td>
+        <td th:text="${register.manufacturer}"></td>
+        <td th:text="${register.prddimensions}"></td>
+        <td th:text="${register.qualiprdmaterialty}"></td>
+        <td th:text="${register.prdstock}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

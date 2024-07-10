@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 정보 수정하기</title>
+    <style>
+        #allusers {
+            margin: 80px 0 0 30px ;
+        }
+
+        table, tr, td {
+           border: 1px solid rgb(240, 118, 139);
+           border-collapse: collapse;
+       }
+
+       td {
+       width: 200px;
+       font-size: 12px;
+       padding: 5px;
+       text-align: left;
+       }
+
+       #allusers_t {
+       font-weight: bold;
+       }
+    </style>
+    <link rel="stylesheet" href="/css/adminMain.css">
+</head>
+
+<body>
+
+<div id="allusers">
+
+
+    <table>
+        <tr>
+            <td colspan="4"><a th:href="@{/mypage/main}">
+                <button>마이페이지 바로가기</button>
+            </a></td>
+        </tr>
+        <tr>
+            <td>이메일</td>
+            <td th:text="${user.email}"></td>
+        </tr>
+        <tr>
+            <td>성명</td>
+            <td th:text="${user.memName}"></td>
+        </tr>
+        <tr>
+            <td>닉네임</td>
+            <td th:text="${user.nickname}"></td>
+        </tr>
+        <tr>
+            <td>회원권한</td>
+            <td th:text="${user.role}"></td>
+        </tr>
+        <tr>
+            <td>가입일</td>
+            <td th:text="${#dates.format(user.userDate, 'yyyy-MM-dd HH:mm')}"></td>
+        </tr>
+
+    </table>
+
+
+    <form action="#" th:action="@{/users/update}" th:object="${user}" method="post">
+        <table>
+
+            <tr>
+                <td>생년월일</td>
+                <td><input name="birthDay" type="date" th:field="*{birthDay}"></td>
+            </tr>
+            <tr>
+                <td>성별</td>
+                <td>
+                    <select id="gender" class="naCiSel" name="gender" th:field="*{gender}">
+                        <option value="M" th:selected="${user.gender == 'M'}">남자</option>
+                        <option value="F" th:selected="${user.gender == 'F'}">여자</option>
+                        <option value="U" th:selected="${user.gender == 'U'}">선택 안함</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>휴대폰번호</td>
+                <td><input name="memPhone" type="tel" th:field="*{memPhone}"></td>
+            </tr>
+            <tr>
+                <td>국가</td>
+                <td><input name="country" type="text" th:field="*{country}"></td>
+            </tr>
+            <tr>
+                <td>주/도/광역지역</td>
+                <td><input name="province" type="text" th:field="*{province}"></td>
+            </tr>
+            <tr>
+                <td>도시</td>
+                <td><input name="city" type="text" th:field="*{city}"></td>
+            </tr>
+            <tr>
+                <td>우편번호</td>
+                <td><input name="zipcode" type="text" th:field="*{zipcode}"></td>
+            </tr>
+            <tr>
+                <td>주소</td>
+                <td rowspan="3"><textarea name="memAdd" th:field="*{memAdd}"></textarea></td>
+            </tr>
+            <tr></tr>
+            <tr></tr>
+            <tr>
+                <td>통관번호</td>
+                <td><input name="clearanceNum" type="text" th:field="*{clearanceNum}"></td>
+            </tr>
+            <tr>
+                <td colspan="4" ><button type="submit">수정 완료</button></td>
+            </tr>
+        </table>
+
+
+    </form>
+    <!--    <form action="#" th:action="@{/users/update}" th:object="${user}"  method="post">-->
+
+
+    <!--<table>-->
+    <!--    <tr>-->
+    <!--        <td>이메일</td>-->
+    <!--        <td th:text="${user.email}"></td>-->
+    <!--    </tr>-->
+    <!--    <tr>-->
+    <!--        <td>성명</td>-->
+    <!--        <td th:text="${user.memName}"></td>-->
+    <!--    </tr>-->
+    <!--    <tr>-->
+    <!--        <td>닉네임</td>-->
+    <!--        <td th:text="${user.nickname}"></td>-->
+    <!--    </tr>-->
+    <!--    <tr>-->
+    <!--        <td>회원권한</td>-->
+    <!--        <td th:text="${user.role}"></td>-->
+    <!--    </tr>-->
+    <!--    <tr>-->
+    <!--        <td>가입일</td>-->
+    <!--        <td th:text="${#dates.format(user.userDate, 'yyyy-MM-dd HH:mm')}"></td>-->
+    <!--    </tr>-->
+    <!--    <tr>-->
+    <!--        <td>생년월일</td>-->
+    <!--        <td><input name="birthDay" type="date" th:value="${user.birthDay}"></td>-->
+    <!--    </tr>-->
+    <!--    <tr>-->
+    <!--        <td>성별</td>-->
+    <!--        <td><select id="gender" class="naCiSel" name="gender">-->
+    <!--            <option value selected></option>-->
+    <!--            <option value="M">남자</option>-->
+    <!--            <option value="F">여자</option>-->
+    <!--            <option value="U">선택 안함</option>-->
+    <!--            <select th:value="${user.gender}"></select>-->
+    <!--        </select></td>-->
+    <!--    </tr>-->
+    <!--    <tr>-->
+    <!--        <td>휴대폰번호</td>-->
+    <!--        <td><input name="memPhone" type="tel" th:value="${user.memPhone}"></td>-->
+    <!--    </tr>-->
+    <!--    <tr>-->
+    <!--        <td>국가</td>-->
+    <!--        <td><input name="country" type="text" th:value="${user.country}"></td>-->
+    <!--    </tr>-->
+    <!--    <tr>-->
+    <!--        <td>주/도/광역지역</td>-->
+    <!--        <td><input name="province" type="text" th:value="${user.province}"></td>-->
+    <!--    </tr>-->
+    <!--    <tr>-->
+    <!--        <td>도시</td>-->
+    <!--        <td><input name="city" type="text" th:value="${user.city}"></td>-->
+    <!--    </tr>-->
+    <!--    <tr>-->
+    <!--        <td>우편번호</td>-->
+    <!--        <td><input name="zipcode" type="text" th:value="${user.zipcode}"></td>-->
+    <!--    </tr>-->
+    <!--    <tr>-->
+    <!--        <td>주소</td>-->
+    <!--        <td rowspan="3"><textarea name="memAdd" type="text" th:text="${user.memAdd}"></textarea></td>-->
+    <!--    </tr>-->
+    <!--    <tr></tr>-->
+    <!--    <tr></tr>-->
+
+    <!--    <tr>-->
+    <!--        <td>통관번호</td>-->
+    <!--        <td><input name="clearanceNum" type="text" th:value="${user.clearanceNum}"></td>-->
+    <!--    </tr>-->
+    <!--</table>-->
+
+    <!--    <button type="submit">회원 정보 수정</button>-->
+    <!--</form>-->
+
+</div>
+</div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+*{
+    margin: 0 auto;
+}
+.category_main{
+    width: 1200px;
+}
+.category_grid{
+    margin-top: 50px;
+    display: grid;
+    width: 1200px;
+    grid-template-columns: 200px 1000px;
+
+}
+.category_grid_box{
+    margin: 0px;
+    display: inline-block;
+}
+.category_none{
+    list-style-type: none;
+}
+.category_box1{
+    text-align: left;
+
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid black;
+}
+.category_text{
+    font-weight: 600;
+    font-size: 15px;
+}
+.category_arrow{
+    margin-left: 70px;
+    text-align: right;
+}
+.category_box2{
+
+    padding: 10px 10px 20px 10px;
+    text-align: left;
+
+}
+.category_box2 a{
+    text-decoration: none;
+    color: #000;
+}
+.category_space{
+    margin: 10px 0px 10px 0px;
+}
+.category_box2 :hover{
+    background-color: #F5F5F5;
+    color: rgb(140, 140, 247);
+}
+.category_title{
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.category_item_grid{
+    padding-left: 50px;
+    display: grid;
+    width: 1000px;
+    grid-template-columns: 190px 190px 190px 190px 190px;
+    grid-template-rows: 400px 400px 400px 400px 400px;
+}
+
+.category_grid_image{
+background-image: url(../images/pro_img/fruits/grape_2\ \(3\).jpg);
+background-size: 300px;
+width: 150px;
+height: 150px;
+margin-top: 50px;
+border-radius: 10px;
+
+}
+.category_text1{
+    font-size: 16px;
+    padding: 5px 0px;
+    width: 150px;
+    font-weight: 500;
+}
+.category_text2{
+    font-size: 16px;
+    padding: 5px 0px;
+    color: #CECECE;
+
+}
+.category_text3{
+    width: 100px;
+    display: inline-block;
+    margin: 0;
+    word-break: break-all;
+    padding: 5px 0px;
+}
+.category_text4{
+    font-size: 16px;
+    padding: 5px 0px;
+    color: red;
+    width: 50px;
+display: inline-block;
+text-align: right;
+vertical-align: top;
+word-break: break-all;
+}
+.category_text5{
+    font-size: 22px;
+    padding: 5px 0px;
+    display: inline-block;
+    word-break: break-all;
+    width: 108px;
+}
+.category_basket{
+    background-image: url(../images/user_box/icon-btn-addcart-small.svg);
+    background-color: rgb(96, 226, 226);
+    background-repeat: no-repeat;
+    background-position: 4px;
+    width: 32px;
+    height: 32px;
+    border-radius: 15px;
+    margin: 0;
+    display: inline-block;
+    vertical-align: top;
+    margin: 5px 0px 5px 8px;
+}

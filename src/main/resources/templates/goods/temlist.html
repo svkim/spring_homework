@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/tem.css">
+</head>
+
+<body>
+<div id="admin_title">관리자 페이지입니다.</div>
+
+<div id="admin_container">
+    <div id="admin_top_link"><a href="/main/home">메인페이지 바로가기</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/logout">로그아웃</div>
+
+    <div id=admin_body>
+        <!-- 왼쪽 -->
+        <div id="admin_left" class="customerCenter_box">
+            <a href=""><img src="/img/logo_img/mugunghwa.jpg"   width="200px"  id="admin_leftImg"></a>
+            <br>
+            <div id="admin_left_title">
+                <div id="title-margin">관리자 메인</div>
+            </div>
+            <div class="admin_left_1">
+                <br>
+                <div class="left_margin"><a href="/register">상품관리</a>
+                    <ul>
+                        <li><a href="/mugunghwa/adminregister">상품등록</a></li>
+                        <li><a href="/mugunghwa/tem">상품목록/검색</a></li>
+                        <li><a href="">상품정보수정</a></li>
+                        <li><a href="">상품삭제</a></li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="admin_left_1">
+                <br>
+                <div class="left_margin"><a href="/admin/AllUsers">회원관리</a>
+                    <ul>
+                        <li><a href="/admin/AllUsers">회원목록/검색/강퇴</a></li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="admin_left_2">
+                <br>
+                <div class="left_margin"><a href="/board/list">게시판 문의관리</a>
+                    <ul>
+                        <li><a href="/board/list">게시판 문의 목록보기</a></li>
+                        <!--                            <li><a href="">게시판 문의 답변 달기</a></li>-->
+                    </ul>
+                </div>
+            </div>
+            <!--                <div class="admin_left_3">-->
+            <!--                    <br>-->
+            <!--                    <div class="left_margin"><a href="">공지사항 관리</a>-->
+            <!--                        <ul>-->
+            <!--                            <li><a href="">공지사항 등록/수정/삭제</a></li>-->
+            <!--                        </ul>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--                <div class="admin_left_3">-->
+            <!--                    <br>-->
+            <!--                    <div class="left_margin"><a href="">리뷰 관리</a>-->
+            <!--                        <ul>-->
+            <!--                            <li><a href="">리뷰 보기/답글/리뷰삭제</a></li>-->
+            <!--                        </ul>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <div class="admin_left_3">
+                <br>
+                <div class="left_margin"><a href="">주문/결제관리</a>
+                    <ul>
+                        <li><a href="">주문/결제정보</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 가운데 -->
+        <div id="admin_center" class="customerCenter_box">
+            <p class="admin_title">상품 리스트</p>
+            <table>
+                <tr>
+                    <th>순서</th>
+                    <th>상품이름</th>
+                    <th>상품이미지</th>
+                    <th>총 금액</th>
+                    <th>재고</th>
+                    <th>등록유무</th>
+                </tr>
+                <tr th:each="register : ${registerList}">
+                    <td th:text="${register.productId}"></td>
+                    <td th:text="${register.prdName}"></td>
+                    <td><img th:src="@{'/prd/' + ${register.prdImage}}" alt="상품 이미지" width="150px"/></td>
+                    <td th:text="${register.discountPrice}"></td>
+                    <td th:text="${register.prdStock}"></td>
+<!--                    <td><input type="button" value="등록취소" class="itemlist_button">-->
+                        <td><form th:action="@{'/mugunghwa/edit/' + ${register.productId}}" method="get" style="display:inline;">
+                            <button type="submit">상품수정</button>
+                        </form>
+                    <form th:action="@{'/mugunghwa/delete/' + ${register.productId}}" method="post">
+                        <input type="hidden" name="_method" value="delete"/>
+                        <button type="submit">등록취소</button>
+                    </form></td>
+                        <!--<input type="button" value="상품수정"></td>-->
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

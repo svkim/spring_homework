@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>제품 등록</title>
+</head>
+<body>
+<h1>제품 등록</h1>
+<form action="/register" method="post" enctype="multipart/form-data">
+    <label for="prdname">제품명:</label>
+    <input type="text" id="prdname" name="prdname" required><br><br>
+
+    <label for="prdimg">이미지:</label>
+    <input type="file" id="prdimg" name="prdimg" required><br><br>
+
+    <label for="orginalprice">원가:</label>
+    <input type="text" id="orginalprice" name="orginalprice" required><br><br>
+
+    <label for="discountprice">할인가:</label>
+    <input type="text" id="discountprice" name="discountprice" required><br><br>
+
+    <label for="manufacturer">제조사:</label>
+    <input type="text" id="manufacturer" name="manufacturer" required><br><br>
+
+    <label for="prddimensions">크기:</label>
+    <input type="text" id="prddimensions" name="prddimensions" required><br><br>
+
+    <label for="qualiprdmaterialty">품질:</label>
+    <input type="text" id="qualiprdmaterialty" name="qualiprdmaterialty" required><br><br>
+
+    <label for="prdstock">재고:</label>
+    <input type="text" id="prdstock" name="prdstock" required><br><br>
+
+    <button type="submit">등록</button>
+</form>
+</body>
+</html>

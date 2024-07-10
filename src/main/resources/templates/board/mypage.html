@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+
+        *{
+            margin: 0 auto;
+            vertical-align: baseline;
+        }
+        header{
+            position: sticky;
+            top: 0;
+        }
+        body {
+            min-width: 1200px;
+            max-width: 1920px;
+        }
+        #header_line{
+            background-color: #F5F5F5;
+        }
+        #header_line ul{
+            width: 1200px;
+            padding: 0;
+            height: 35px;
+            line-height: 35px;
+            text-align: right;
+        }
+        #header_line li{
+            list-style: none;
+            display: inline-block;
+            margin-left: 20px;
+        }
+        #header_line li a{
+            text-decoration-line: none;
+            color: #B0BDD2;
+        }
+        #logo_image{
+            background-image: url(무궁화.png);
+            background-repeat: no-repeat;
+            width: 260px;
+            height: 150px;
+            background-size: 300px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        #header_space{
+            text-align: center;
+            width: 1200px;
+            margin: 0 auto;
+            padding: 30px 0px;
+            background-color: white;
+        }
+
+
+        ul, li {
+            list-style: none
+        }
+        a {
+            text-decoration: none;
+            color: #222
+        }
+
+        .main_menu {
+            margin: 0 auto;
+            width: 1200px;
+            height: 100px;
+        }
+
+
+        footer{
+            margin-top: 200px;
+            background-color: #F5F6F6;
+        }
+        .footer_logo{
+            width: 150px;
+            height: 35px;
+            background-image: url(../im);
+            background-repeat: no-repeat;
+            background-size: 150px;
+            padding-bottom: 45px;
+            margin-top: 55px;
+            margin-right: 90px;
+        }
+        .footer_text{
+            display: inline-block;
+            font-size: 12px;
+            margin-bottom: 20px;
+        }
+        .footer_link{
+            display: inline-block;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        .footer_link a{
+            text-decoration-line: none;
+            color: black;
+            font-size: 12px;
+        }
+
+        #footer1_main{
+            width: 1200px;
+        }
+        #footer1_grid{
+            display: grid;
+            grid-template-columns: 300px 700px 200px;
+            grid-template-rows: 200px;
+        }
+        .footer1_gridbox{
+            margin: 0px;
+        }
+
+
+        #container {
+            width: 100%;
+        }
+
+        #container > .section {
+            width: 92%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .path span {
+            overflow: hidden;
+            position: absolute;
+            width: 0;
+            height: 0;
+            white-space: nowrap;
+            text-indent: 100%;
+        }
+        .path ol {
+            float: right;
+        }
+
+        .path li:first-child {
+            background: none;
+        }
+
+        .path li {
+            display: inline-block;
+        }
+        #mypage_header > .section {
+            width: 92%;
+            margin-left: auto;
+            margin-right: auto;
+            border-top: 1px solid #cdcdcd;
+            border-bottom: 1px solid #cdcdcd;
+        }
+
+        .box_mypage-body {
+            padding-top: 50px;
+            padding-bottom: 110px;
+        }
+
+        .box_mypage-lnb .box_mypage-menu {
+            margin-top: 18px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .box_mypage-lnb .box_mypage-menu .list__menu {
+            padding: 20px 0;
+        }
+        .box_inner {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        .box_mypage-lnb {
+            float: left;
+            width: 200px;
+        }
+
+        .box_mypage-lnb > .text__title {
+            font-size: 30px;
+            font-weight: 500;
+            line-height: 1;
+            letter-spacing: 5px;
+            text-align: left;
+            margin-left: 15%;
+        }
+
+
+
+        .list-item {
+            position: relative;
+            display: block;
+            padding: 12px 20px;
+            width: 100%;
+            height: 40px;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 1;
+            letter-spacing: -0.9px;
+            color: #222;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+    </style>
+
+
+
+</head>
+<body>
+
+<header>
+    <div id="header_line">
+        <ul>
+            <li><a href="/logout">로그아웃</a></li>
+            <li><a href="/board/list">게시판</a></li>
+        </ul>
+    </div>
+    <div class="header_logo">
+        <div id="header_space">
+            <div id="logo_image"></div>
+            <div id="header_icon">
+                <div id="header_delivery"></div>
+                <div id="header_basket"></div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+<div id="container" role="main">
+    <div id="mypage_header">
+        <div class="section path">
+            <span>현재 위치</span>
+            <ol>
+                <li>
+                    <a href="/main/home">홈</a>
+                </li>
+                /
+                <li title="현재 위치">
+                    MY PAGE
+                </li>
+            </ol>
+        </div>
+        <div class="section titleArea">
+            <h2 style="text-align: center; margin: 40px;">MY PAGE</h2>
+        </div>
+    </div>
+</div>
+
+<div id="mypage__body" >
+    <div class="box_mypage-body">
+        <div class="box_inner">
+            <div id="box_mypage-lnb" class="box_mypage-lnb">
+                <p class="text__title">
+                    <a href="#" class="link__mypage">무 궁 화</a>
+                </p>
+                <div class="box_mypage-menu" style="display: block;">
+                    <ul class="list__menu">
+                        <li class="list-item">
+                            <a href="#" class="link__menu">
+                                    <span class="text__menu">장바구니</span>
+                            </a>
+                        </li>
+                        <li class="list-item">
+                            <a href="#" class="link__menu">
+                                    <span class="text__menu">주문관리</span>
+                            </a>
+                        </li>
+                        <li class="list-item">
+                            <a href="/users/view" class="link__menu">
+                                    <span class="text__menu">개인정보수정</span>
+                            </a>
+                        </li>
+                        <li class="list-item">
+                            <a href="/board/list" class="link__menu">
+                                <span class="text__menu">1대1 문의</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div id="footer1_main">
+        <div id ="footer1_grid">
+            <div class="footer1_gridbox">
+                <div class="footer_logo"></div>
+            </div>
+            <div class="footer1_gridbox">
+                <p class="footer_text">상호명 : 한국만예사 ㅣ 대표자 : 윤주상  ㅣ 전화 : 051-123-4567 ㅣ
+                    팩스 : 051-123-4567 ㅣ 이메일: wntkdrbtkd1@gmail.com
+                </p>
+                <p class="footer_text">사무실 주소 : 서울시 종로구 삼일대로30길 37 4층 ㅣ 사업자등록번호 : 560-08-02146
+                    ㅣ 통신판매업신고번호 : 2022-서울종로-1485호
+                </p>
+                <p class="footer_text">
+                    매장주소 : 서울시 중구 소공로1-2 소공지하쇼핑센터 15호 ㅣ 개인정보관리책임자 : 윤주상
+                </p>
+            </div>
+            <div class="footer1_gridbox">
+                <p class="footer_link"><a href="#">이용약관</a></p>
+                <p class="footer_link">l</p>
+                <p class="footer_link"><a href="#"> 개인정보처리방침</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

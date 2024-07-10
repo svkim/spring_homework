@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product</title>
+    <link rel="stylesheet" href="/css/adminchange.css">
+</head>
+<body>
+<div id="admin_title">관리자 페이지입니다.</div>
+<div id="admin_container">
+    <div id="admin_top_link"><a href="#">메인페이지 바로가기</a></div>
+    <div id="admin_body">
+        <!-- 왼쪽 -->
+        <div id="admin_left" class="customerCenter_box">
+            <a href=""><img src="/img/mugunghwa.png" width="200px" id="admin_leftImg"></a>
+            <br>
+            <div id="admin_left_title">
+                <div id="title-margin">관리자 메인</div>
+            </div>
+            <div class="admin_left_1">
+                <br>
+                <div class="left_margin"><a href="">상품관리</a>
+                    <ul>
+                        <li><a href="">상품등록</a></li>
+                        <li><a href="">상품검색</a></li>
+                        <li><a href="">상품정보수정</a></li>
+                        <li><a href="">상품삭제</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="admin_left_1">
+                <br>
+                <div class="left_margin"><a href="">회원관리</a>
+                    <ul>
+                        <li><a href="">회원목록보기</a></li>
+                        <li><a href="">회원검색</a></li>
+                        <li><a href="">회원정보수정</a></li>
+                        <li><a href="">회원제명</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="admin_left_2">
+                <br>
+                <div class="left_margin"><a href="">게시판 문의관리</a>
+                    <ul>
+                        <li><a href="">게시판 문의 목록보기</a></li>
+                        <li><a href="">게시판 문의 답변 달기</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="admin_left_3">
+                <br>
+                <div class="left_margin"><a href="">공지사항 관리</a>
+                    <ul>
+                        <li><a href="">공지사항 등록/수정/삭제</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="admin_left_3">
+                <br>
+                <div class="left_margin"><a href="">리뷰 관리</a>
+                    <ul>
+                        <li><a href="">리뷰 보기/답글/리뷰삭제</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="admin_left_3">
+                <br>
+                <div class="left_margin"><a href="">주문/결제관리</a>
+                    <ul>
+                        <li><a href="">주문/결제정보</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 가운데 -->
+        <div id="admin_center" class="customerCenter_box">
+            <div class="admin_register">상품 수정</div>
+            <form th:action="@{'/mugunghwa/update/' + ${register.productId}}" method="post" enctype="multipart/form-data">
+                <table>
+                    <tr>
+                        <td>상품ID</td>
+                        <td class="long_colspan"><input type="text" class="textsize" name="prdId" th:value="${register.productId}" readonly></td>
+                    </tr>
+                    <tr>
+                        <td>상품이름</td>
+                        <td class="long_colspan"><input type="text" class="textsize" name="prdName" th:value="${register.prdName}" required></td>
+                    </tr>
+                    <tr>
+                        <td>품명 및 모델명</td>
+                        <td class="long_colspan"><input type="text" class="textsize" name="prdModelnumber" th:value="${register.prdModelnumber}" required></td>
+                    </tr>
+                    <tr>
+                        <td>상품이미지</td>
+                        <td class="long_colspan"><input type="file" class="textsize" name="prdImage"></td>
+                    </tr>
+                    <tr>
+                        <td>제품원가</td>
+                        <td class="long_colspan"><input type="number" class="textsize" name="originalPrice" th:value="${register.originalPrice}" required></td>
+                    </tr>
+                    <tr>
+                        <td>할인가</td>
+                        <td class="long_colspan"><input type="number" class="textsize" name="discountPrice" th:value="${register.discountPrice}" required></td>
+                    </tr>
+                    <tr>
+                        <td>제조업체</td>
+                        <td class="long_colspan"><input type="text" class="textsize" name="prdManufacturer" th:value="${register.prdManufacturer}" required></td>
+                    </tr>
+                    <tr>
+                        <td>제품치수</td>
+                        <td class="long_colspan"><input type="text" class="textsize" name="prdDimensions" th:value="${register.prdDimensions}" required></td>
+                    </tr>
+                    <tr>
+                        <td>제품출시</td>
+                        <td class="long_colspan"><input type="text" class="textsize" name="prdRelease" th:value="${register.prdRelease}" required></td>
+                    </tr>
+                    <tr>
+                        <td>재고</td>
+                        <td class="long_colspan"><input type="number" class="textsize" name="prdStock" th:value="${register.prdStock}" required></td>
+                    </tr>
+                    <tr>
+                        <td>대분류</td>
+                        <td class="long_colspan"><input type="text" class="textsize" name="prdMajorcategory" th:value="${register.prdMajorcategory}" required></td>
+                    </tr>
+                    <tr>
+                        <td>소분류</td>
+                        <td class="long_colspan"><input type="text" class="textsize" name="prdSubcategory" th:value="${register.prdSubcategory}" required></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <button type="submit" class="button_beautiful">수정하기</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

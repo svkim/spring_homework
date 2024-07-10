@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 정보 보기</title>
+    <style>
+        #allusers {
+            margin: 80px 0 0 30px ;
+        }
+
+        table, tr, td {
+           border: 1px solid rgb(240, 118, 139);
+           border-collapse: collapse;
+       }
+
+       td {
+       width: 200px;
+       font-size: 12px;
+       padding: 5px;
+       text-align: left;
+       }
+
+       #allusers_t {
+       font-weight: bold;
+       }
+    </style>
+    <link rel="stylesheet" href="/css/adminMain.css">
+</head>
+
+<body>
+
+<div id="allusers">
+    <table>
+        <tr>
+            <td colspan="4"><a th:href="@{/mypage/main}">
+                <button>마이페이지 바로가기</button>
+            </a></td>
+        </tr>
+        <tr>
+            <td th:text="'이메일: ' + ${user.email}" id="allusers_t"></td>
+            <td th:text="'휴대폰번호: ' + ${user.memPhone}"></td>
+            <td th:text="'닉네임: ' + ${user.nickname}"></td>
+        </tr>
+        <tr>
+            <td th:text="'생년월일: ' + ${user.birthDay}"></td>
+            <td th:text="'성별: ' + ${user.gender}"></td>
+            <td th:text="'회원권한: ' + ${user.role}"></td>
+            <td th:text="'통관번호: ' + ${user.clearanceNum}"></td>
+        </tr>
+        <tr>
+            <td th:text="'우편번호: ' + ${user.zipcode}"></td>
+            <td th:text="'국가: ' + ${user.country}"></td>
+            <td th:text="'주/도/광역지역: ' + ${user.province}"></td>
+            <td th:text="'도시: ' + ${user.city}"></td>
+        </tr>
+        <tr>
+            <td th:text="'주소: ' + ${user.memAdd}" colspan="4"></td>
+        </tr>
+        <tr>
+            <td th:text="'가입일: ' + ${#dates.format(user.userDate, 'yyyy-MM-dd HH:mm')}">글등록일</td>
+        </tr>
+        <tr>
+            <td  colspan="2"><a th:href="@{/users/modify}">
+                <button>정보 수정하기</button>
+            </a></td>
+            <td  colspan="2"><a th:href="@{/users/userDelete(id=${user.userId})}">
+                    <button >탈퇴하기</button></a></td>
+        </tr>
+    </table>
+
+
+
+</div>
+
+</body>
+
+</html>

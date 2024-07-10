@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signUp</title>
+    <link href="/css/join.css" rel="stylesheet">
+</head>
+
+<body>
+<div id="signUpWrapper">
+   <img src="/img/logo_img/mugunghwa.jpg" width="150px" id="join_top_img">
+    <div id="join_top_main"><a href="/main/main1">[메인페이지 바로가기]</a></div>
+    <!-- 토큰을 추가하여 CSRF 공격 방지 -->
+    <input type="hidden" th:name="${_csrf?.parameterName}" th:value="${_csrf?.token}"/>
+
+    <h1 id="signUpH1"> 회원가입을 환영합니다.</h1>
+    <form th:action="@{/user}" method="POST">
+        <div id="signUpContent">
+            <!-- id -->
+            <div>
+                <div class="signUpLabel">아이디</div>
+                <div class="error_next_box"></div>
+
+                <div class="signUpBox"><input type="text" id="id" class="signUpInput" maxlength="20" required
+                                              placeholder="아이디 입력" name="memId" autofocus></div>
+
+            </div>
+            <br>
+
+            <!-- pw -->
+            <div>
+                <div class="signUpLabel">비밀번호</div>
+                <div class="error_next_box"></div>
+                <div class="signUpBox"><input type="text" id="pw1" class="signUpInput" maxlength="20" required
+                                              placeholder="비밀번호 입력" name="password" autofocus></div>
+
+            </div>
+            <br>
+
+            <!-- pw_check -->
+            <div>
+                <div class="signUpLabel">비밀번호 확인</div>
+                <div class="error_next_box"></div>
+                <div class="signUpBox"><input type="text" id="pw2" class="signUpInput" maxlength="20" required
+                                              placeholder="비밀번호 확인" name="password" autofocus></div>
+
+            </div>
+            <br>
+
+            <!-- 이름 -->
+            <div>
+                <div class="signUpLabel">이름</div>
+                <div class="error_next_box"></div>
+                <div class="signUpBox"><input type="text" id="userName" class="signUpInput" maxlength="20" required
+                                              placeholder="이름 입력" name="memName" autofocus></div>
+
+            </div>
+            <br>
+
+            <!--닉네임 -->
+            <div>
+                <div class="signUpLabel">닉네임</div>
+                <div class="error_next_box"></div>
+                <div class="signUpBox"><input type="text" id="userNickname" class="signUpInput" maxlength="20" required
+                                              placeholder="이름 입력" name="nickname" autofocus></div>
+
+            </div>
+            <br>
+
+            <div>
+                <div class="signUpLabel">생년월일</div>
+                <div class="error_next_box"></div>
+                <div class="signUpBox2">
+                    <input type="date" required id="birthDay" name="birthDay">
+                </div>
+            </div>
+            <br>
+
+
+            <div>
+                <div class="signUpLabel">성별 <span class="signUpSpan">(선택)</span></div>
+
+                <div class="signUpBox1">
+                    <select id="gender" class="naCiSel" name="gender">
+                        <option value selected></option>
+                        <option value="M">남자</option>
+                        <option value="F">여자</option>
+                        <option value="U">선택 안함</option>
+                    </select>
+
+                </div>
+            </div>
+            <br>
+
+            <div>
+                <div class="signUpLabel">이메일</div>
+                <div class="error_next_box"></div>
+                <div th:if="${error}" th:text="${error}" style="color: red;"></div>
+                <div class="signUpBox"><input type="email" id="email" class="signUpInput" maxlength="40"
+                                              placeholder="이메일 주소 입력" required name="email" autofocus></div>
+
+            </div>
+            <br>
+
+            <!-- PHONE -->
+            <div>
+                <div class="signUpLabel">휴대전화</div>
+                <div class="error_next_box"></div>
+                <div class="signUpBox"><input type="tel" id="mobile" class="signUpInput" maxlength="16"
+                                              placeholder="하이픈 빼고 번호만 입력" required name="memPhone" autofocus></div>
+
+            </div>
+            <br>
+
+            <!-- 제품받는 나라 -->
+            <div>
+                <div class="signUpLabel">제품받는 국가</div>
+                <div class="error_next_box"></div>
+                <div class="signUpBox"><input type="text" id="signUpNation" class="signUpInput" maxlength="16"
+                                              placeholder="제품받는 국가 입력" required name="country" autofocus></div>
+            </div>
+            <br>
+
+            <div>
+                <div class="signUpLabel">제품받는 주<span class="signUpSpan">(선택)</span></div>
+
+                <div class="signUpBox"><input type="text" id="signUpProvince" class="signUpInput" maxlength="16"
+                                              placeholder="제품받는 국가 입력" required name="province" autofocus></div>
+            </div>
+            <br>
+
+            <div>
+                <div class="signUpLabel">제품받는 도시, 마을</div>
+                <div class="error_next_box"></div>
+
+                <div class="signUpBox"><input type="text" id="signUpCity" class="signUpInput" maxlength="16"
+                                              placeholder="제품받는 국가 입력" required name="city" autofocus></div>
+            </div>
+            <br>
+
+            <div>
+                <div class="signUpLabel">우편번호<span class="signUpSpan">(선택)</span></div>
+                <div class="signUpBox"><input id="zipcode" placeholder="우편번호 입력" name="zipcode"
+                                              class="signUpInput"  autofocus>
+                </div>
+            </div>
+
+
+            <!-- 주소 -->
+            <div>
+                <div class="signUpLabel">전체 주소<span class="signUpSpan">(국가 포함)</span></div>
+                <div class="error_next_box"></div>
+                <div class="signUpTextarea"><textarea id="userAdd" placeholder="전체 주소 입력(국가포함)" required
+                                                      name="memAdd"
+                                                      autofocus></textarea>
+                </div>
+
+
+            </div>
+            <br>
+
+
+            <!-- 통관번호 -->
+            <div>
+                <div class="signUpLabel">통관번호<span class="signUpSpan">(선택)</span></div>
+                <div class="signUpBox"><input type="text" id="clearanceNum" class="signUpInput" maxlength="30"
+                                              placeholder="통관번호 입력" name="clearanceNum" autofocus></div>
+
+            </div>
+            <br>
+        </div>
+
+        <div id="join_check">
+            <hr style="border: 1px solid rgb(240, 118, 139); width: 380px;" class="join_hr">
+            <div id="join_check_div_all">
+                <input type="checkbox" id="join_check_All" required onclick="toggle(this)">
+                <label for="join_check_All">
+                    <span class="join_check_span"></span>&nbsp;&nbsp;<b>전체동의</b>
+                </label>
+            </div>
+
+            <!-- 서비스 이용약관 모달2 -->
+            <div class="join_check_div">
+                <input type="checkbox" id="join_perinfor" class="join_check" required
+                       onclick="checkSelectAll()">
+                <label for="join_perinfor">
+                    <span class="join_check_span">[필수]</span>&nbsp;&nbsp;<b>서비스 이용약관 동의</b>
+                </label>
+
+            </div>
+
+
+            <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+            <!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+            <!-- 개인정보 동의 모달3 -->
+
+            <div class="join_check_div">
+                <input type="checkbox" id="join_servicepolicy" class="join_check" required
+                       onclick="checkSelectAll()">
+                <label for="join_servicepolicy">
+                    <span class="join_check_span">[필수]</span>&nbsp;&nbsp;<b>개인정보 이용 동의</b>
+                </label>
+
+            </div>
+
+
+            <!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+            <!-- ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+            <!-- 청소년 보호 정책 모달1 -->
+            <div class="join_check_div">
+                <input type="checkbox" id="join_chkYouth" class="join_check" required
+                       onclick="checkSelectAll()">
+                <label for="join_chkYouth">
+                    <span class="join_check_span">[필수]</span>&nbsp;&nbsp;<b>청소년 보호 정책 동의</b>
+                </label>
+
+            </div>
+            <hr style="border: 1px solid rgb(240, 118, 139); width: 380px;" class="join_hr">
+            <!-- join_btn -->
+            <div class="btn_area">
+                <button type="submit" id="btnJoin">
+                    <span>가입하기</span>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="/js/join.js"></script>
+
+</body>
+
+</html>

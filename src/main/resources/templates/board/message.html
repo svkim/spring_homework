@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>메세지 창</title>
+</head>
+
+<script th:inline="javascript">
+
+<!--    <![CDATA[]]> 특수문자를 전부 문자열로 치환-->
+<!--    <, >, & 를 사용하여 비교연산자를 나타내야할 때 <>괄호로 인식하게 하지 않기 위해서 사용한다고 한다.-->
+<!--    타임리프문 안에서 자바스크립트를 사용할 때도 무조건 묶어줘야한다고 한다. -->
+
+  /*<![CDATA[*/
+
+  var message = [[${message}]];
+  alert(message);
+
+  location.replace([[${sUrl}]])
+
+  /*]]>*/
+
+</script>
+
+<body>
+
+</body>
+</html>

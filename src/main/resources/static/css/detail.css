@@ -1,0 +1,356 @@
+.detail_main{
+    width: 1200px;
+}
+.detail_grid{
+    display: grid;
+    width: 1200px;
+    grid-template-columns: 600px 600px;
+    grid-template-rows: 650px;
+    margin-top: 50px;
+}
+.detail_image{
+    background-image: url(../images/pro_img/fruits/orange_1.jpg);
+    width: 538px;
+    height: 538px;
+    background-size: 850px;
+    background-position-x: -150px;
+}
+
+.name_size1 {
+    /*이름 사이즈 당일배송, 9000원*/
+    font-size: 30px;
+    margin-top: 50px;
+    margin-bottom: 70px;
+}
+.name_size_1 {
+    /*이름 사이즈 당일배송, 9000원*/
+    margin-top: 10px;
+    color: #CECECE;
+}
+.main_price{
+    font-size: 25px;
+}
+.name_size2 {
+    /*이름 사이즈 보관방법, 배송정보*/
+    /* width: 100px; */
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 30px;
+}
+
+.name_size3 {
+    /*이름 사이즈 원산지*/
+    font-size: 32px;
+    font-weight: 500;
+    margin-top: 10px;
+    display: inline-block;
+}
+.name_size4{
+    display: inline-block;
+    font-size: 22px;
+    font-weight: 400;
+    color: red;
+}
+.main_explain {
+    /*사진과 상세설명 공간*/
+    width: 800px;
+}
+
+.main_space {
+    padding: 15px;
+    font-weight: 500;
+}
+.explain {
+    /*상세설명,냉장보관, 일반배송 시작위치*/
+    display: inline-block;
+    font-size: 15px;
+}
+
+
+.arrow {
+    /*화살표 위치*/
+    margin-left: 100px;
+    cursor: pointer;
+}
+
+.main_space2 {
+    /*일반배송, 지금결제시쪽 위치 산지직송 위치*/
+margin-top: 15px;
+}
+.button_color {
+    /* 배송정보 백그라운드색깔*/
+    padding-top: 15px;
+    margin-top: 30px;
+    background-color: #F7F7F7;
+    height: 80px;
+    margin-right: 0px;
+}
+.shipment{
+    margin-left: 10px;
+}
+.pink_color {
+    /*글자 핑크색과 인라인블록*/
+    color:  rgb(240, 118, 139);
+    display: inline-block;
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+.pay {
+    /*지금 결제시쪽에 쓰는 인라인 블록*/
+    display: inline-block;
+    font-size: 20px;
+}
+
+.delivery {
+    /*배송정보 펼치면 나오는 일반배송과 지금결제시까지의 공간*/
+    width: 100px;
+    display: inline-block;
+    margin-right: 55px;
+}
+
+.free_delivery {
+    /*배송정보 펼치면 나오는 무료배송 위치*/
+    position: relative;
+    left: 175px;
+}
+
+.cnt {
+    border-radius: 10px;
+    border: 1px solid black;
+    background-color: white;
+
+}
+
+.cntpay {
+    margin-left: 300px;
+}
+.button_beauty1 {
+    margin: 0 15px 0 0;
+    padding-bottom: 10px;
+    color: black;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: 1px solid white;
+    font-size: 20px;
+    background-color: white;
+   cursor: pointer;
+   padding: 0px;
+   margin-left: 10px;
+}
+.button_beauty2 {
+    margin: 0 15px 0 0;
+    padding-bottom: 10px;
+    color: black;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border: 1px solid white;
+    font-size: 20px;
+    background-color: white;
+   cursor: pointer;
+   padding: 3px;
+   margin-left: 10px;
+}
+.price_position{
+    display: inline-block;
+    text-align: right;
+   margin-left: 450px;
+   font-size: 22px;
+   font-weight: 500;
+}
+.market_pay_position {
+    /* position: relative; */
+    /* right: 5px; */
+    text-align: right;
+}
+
+.price_position1 {
+    font-size: 36px;
+    color:  rgb(240, 118, 139);
+
+    line-height: 50px;
+    margin-left: 20px;
+}
+
+.price_position2 {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 60px;
+    text-align: right;
+    margin-top: 15px;
+}
+
+.market_box1 {
+    box-sizing: border-box;
+    border: 1px solid  rgb(240, 118, 139);
+    width: 180px;
+    height: 60px;
+    display: inline-block;
+    background-color: white;
+    color:  rgb(240, 118, 139);
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+.market_box2 {
+    box-sizing: border-box;
+    border: 1px solid  rgb(240, 118, 139);
+    width: 180px;
+    height: 60px;
+    margin-left: 30px;
+    color: white;
+    background-color:  rgb(240, 118, 139);
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.detail_hr{
+    margin-bottom: 200px;
+}
+.main1{
+    display: block;
+}
+.main2{
+display: none;
+}
+.menu{
+    text-align: center;
+    background-color: #F7F7F7;
+    width: 100%;
+    height: 60px;
+    border-top: 1px solid #D6D6D6
+
+}
+
+.box1{
+    box-sizing: border-box;
+    border-right: 0px;
+    border-bottom: 0px;
+    width: 240px;
+    height: 60px;
+    line-height: 60px;
+list-style: none;
+display: inline-block;
+margin-right: -6px;
+text-align: center;
+cursor: pointer;
+color: #635447;
+margin-top: 0px;
+padding-top: 0px;
+background-color: white;
+}
+.box2{
+    box-sizing: border-box;
+    width: 240px;
+    height: 60px;
+    line-height: 60px;
+list-style: none;
+display: inline-block;
+margin-right: -6px;
+text-align: center;
+cursor: pointer;
+color: #635447;
+}
+.detail_list_form{
+width: 1200px;
+}
+.detail_introduce_img{
+    width: 1000px;
+    height: 1000px;
+    background-image: url(../images/pro_img/fruits/ornage_detail_f.jpg);
+    background-size: 650px;
+    background-repeat: no-repeat;
+    background-position-x: 160px;
+}
+.detail_review{
+    font-size: 30px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 100px;
+
+}
+.detail_count{
+    font-size: 14px;
+    width: 80px;
+    height: 32px;
+    box-sizing: border-box;
+    border: 2px solid  rgb(240, 118, 139);
+    border-radius: 8px;
+    padding: 4px 10px;
+    cursor: pointer;
+    margin-left: 0;
+    display: inline-block;
+    /* margin-right: 776px; */
+    margin-top: 100px;
+
+}
+.gray_line {
+    margin-top: 15px;
+    background-color: #525252;
+}
+.review_left {
+    text-align: left;
+    margin-top: 30px;
+    height: 250px;
+}
+
+.id_position {
+    margin-left: 5px;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.day_position {
+    margin-left: 5px;
+    display: inline-block;
+    color: #AFAFAF;
+    vertical-align: bottom;
+}
+
+.review_name_color1 {
+    margin-top: 10px;
+    color: #AFAFAF;
+    width: 900px;
+}
+
+.review_name_color2 {
+    margin-top: 5px;
+    font-size: 15px;
+    margin-bottom: 10px;
+    width: 900px;
+}
+
+.review_image {
+    width: 88px;
+    height: 88px;
+    background-size: 132px;
+    background-position: -45px 0;
+    text-align: left;
+    margin: 0;
+    background-image: url(../images/pro_img/fruits/orange_2.jpg);
+}
+
+
+.text_position {
+    text-align: left;
+    margin: 0;
+    display: inline-block;
+
+}
+.detail_write{
+    width: 150px;
+    height: 30px;
+    background-color: white;
+    border: 1px solid rgb(240, 118, 139);
+    color: rgb(240, 118, 139);
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-left: 964px;
+}

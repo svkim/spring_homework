@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/headfoot.css">
+    <link rel="stylesheet" href="/css/category.css">
+</head>
+<body>
+<header>
+    <div id="header_color">
+        <div id="header_line">
+            <form action="#" class="main_selectbox">
+                <select name="" id="lang" class="main_select">
+                    <option value="Korea">한국어</option>
+                    <option value="USA">english</option>
+                    <option value="China">中國語</option>
+                    <option value="Russia">Русский</option>
+                </select>
+            </form>
+            <ul>
+                <li th:if="${nickname == null}"><a href="/login">로그인</a></li>
+                <li th:if="${nickname == null}"><a href="/join">회원가입</a></li>
+                <li th:if="${nickname != null}"><span th:text="${nickname}">사용자 닉네임</span></li>
+                <li th:if="${nickname != null}"><a href="/logout">로그아웃</a></li>
+                <li><a href="/customerCenter/main">고객센터</a></li>
+                <li><a href="#">배송안내</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="header_logo">
+        <div id="header_space">
+            <a href="/main/home">
+                <div id="logo_image"></div>
+            </a>
+            <div id="header_search">
+                <form th:action="@{/mugunghwa/category_product}" method="get">
+                    <input type="search" name="prdName" id="header_type">
+                    <button type="submit" id="header_button">123123123</button>
+                </form>
+            </div>
+            <div id="header_icon">
+                <a href="/mypage/main"><div id="header_mypage"></div></a>
+                <div id="header_delivery"></div>
+                <div id="header_basket"></div>
+            </div>
+        </div>
+    </div>
+    <div class="main_menu">
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">전통기념품</a>
+                    <ul class="submenu">
+                        <li><a th:href="@{/mugunghwa/category(major='전통기념품', sub='열쇠고리')}">열쇠고리</a></li>
+                        <li><a th:href="@{/mugunghwa/category(major='전통기념품', sub='자석')}">자석</a></li>
+                        <li><a th:href="@{/mugunghwa/category(major='전통기념품', sub='문구')}">문구</a></li>
+                        <li><a th:href="@{/mugunghwa/category(major='전통기념품', sub='카드/엽서')}">카드/엽서</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">나전칠기</a>
+                    <ul class="submenu">
+                        <li><a th:href="@{/mugunghwa/category(major='나전칠기', sub='보석함')}">보석함</a></li>
+                        <li><a th:href="@{/mugunghwa/category(major='나전칠기', sub='쌍합')}">쌍합</a></li>
+                        <li><a th:href="@{/mugunghwa/category(major='나전칠기', sub='병풍/쟁반')}">병풍/쟁반</a></li>
+                        <li><a th:href="@{/mugunghwa/category(major='나전칠기', sub='자개거울')}">자개거울</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">섬유공예</a>
+                    <ul class="submenu">
+                        <li><a th:href="@{/mugunghwa/category(major='섬유공예', sub='티셔츠')}">티셔츠</a></li>
+                        <li><a th:href="@{/mugunghwa/category(major='섬유공예', sub='한복인형')}">한복인형</a></li>
+                        <li><a th:href="@{/mugunghwa/category(major='섬유공예', sub='한복액자')}">한복액자</a></li>
+                        <li><a th:href="@{/mugunghwa/category(major='섬유공예', sub='와인커버')}">와인커버</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">목공예</a>
+                    <ul class="submenu">
+                        <li><a th:href="@{/mugunghwa/category(major='목공예', sub='전통탈')}">전통탈</a></li>
+                        <li><a th:href="@{/mugunghwa/category(major='목공예', sub='탈액자')}">탈액자</a></li>
+                        <li><a th:href="@{/mugunghwa/category(major='목공예', sub='오리원앙')}">오리원앙</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">금속공예</a>
+                    <ul class="submenu">
+                        <li><a th:href="@{/mugunghwa/category(major='금속공예', sub='문종')}">문종</a></li>
+                        <li><a th:href="@{/mugunghwa/category(major='금속공예', sub='주물종')}">주물종</a></li>
+                        <li><a th:href="@{/mugunghwa/category(major='금속공예', sub='액자')}">액자</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <hr>
+</header>
+<div class="category_main">
+    <div class="category_grid">
+        <div class="category_grid_box">
+            <details open>
+                <summary class="category_none">
+                    <div class="category_list1">
+                        <div class="category_box1">
+                            <p class="category_text">전통기념품 <span class="category_arrow">▼</span></p>
+                        </div>
+                    </div>
+                </summary>
+                <div class="category_box2">
+                    <p class="category_space"><a th:href="@{/mugunghwa/category(major='전통기념품', sub='열쇠고리')}">열쇠고리</a></p>
+                    <p class="category_space"><a th:href="@{/mugunghwa/category(major='전통기념품', sub='자석')}">자석</a></p>
+                    <p class="category_space"><a th:href="@{/mugunghwa/category(major='전통기념품', sub='문구')}">문구</a></p>
+                    <p class="category_space"><a th:href="@{/mugunghwa/category(major='전통기념품', sub='카드/엽서')}">카드/엽서</a></p>
+                </div>
+            </details>
+            <details open>
+                <summary class="category_none">
+                    <div class="category_list1">
+                        <div class="category_box1">
+                            <p class="category_text">나전칠기 <span class="category_arrow">▼</span></p>
+                        </div>
+                    </div>
+                </summary>
+                <div class="category_box2">
+                    <p class="category_space"><a th:href="@{/mugunghwa/category(major='나전칠기', sub='보석함')}">보석함</a></p>
+                    <p class="category_space"><a th:href="@{/mugunghwa/category(major='나전칠기', sub='쌍합')}">쌍합</a></p>
+                    <p class="category_space"><a th:href="@{/mugunghwa/category(major='나전칠기', sub='병풍/쟁반')}">병풍/쟁반</a></p>
+                    <p class="category_space"><a th:href="@{/mugunghwa/category(major='나전칠기', sub='자개거울')}">자개거울</a></p>
+                </div>
+            </details>
+            <details open>
+                <summary class="category_none">
+                    <div class="category_list1">
+                        <div class="category_box1">
+                            <p class="category_text">섬유공예 <span class="category_arrow">▼</span></p>
+                        </div>
+                    </div>
+                </summary>
+                <div class="category_box2">
+                    <p class="category_space"><a th:href="@{/mugunghwa/category(major='섬유공예', sub='티셔츠')}">티셔츠</a></p>
+                    <p class="category_space"><a th:href="@{/mugunghwa/category(major='섬유공예', sub='한복인형')}">한복인형</a></p>
+                    <p class="category_space"><a th:href="@{/mugunghwa/category(major='섬유공예', sub='한복액자')}">한복액자</a></p>
+                    <p class="category_space"><a th:href="@{/mugunghwa/category(major='섬유공예', sub='와인커버')}">와인커버</a></p>
+                </div>
+            </details>
+            <details open>
+                <summary class="category_none">
+                    <div class="category_list1">
+                        <div class="category_box1">
+                            <p class="category_text">목공예 <span class="category_arrow">▼</span></p>
+                        </div>
+                    </div>
+                </summary>
+                <div class="category_box2">
+                    <p class="category_space"><a th:href="@{/mugunghwa/category(major='목공예', sub='전통탈')}">전통탈</a></p>
+                    <p class="category_space"><a th:href="@{/mugunghwa/category(major='목공예', sub='탈액자')}">탈액자</a></p>
+                    <p class="category_space"><a th:href="@{/mugunghwa/category(major='목공예', sub='오리원앙')}">오리원앙</a></p>
+                </div>
+            </details>
+            <details open>
+                <summary class="category_none">
+                    <div class="category_list1">
+                        <div class="category_box1">
+                            <p class="category_text">금속공예 <span class="category_arrow">▼</span></p>
+                        </div>
+                    </div>
+                </summary>
+                <div class="category_box2">
+                    <p class="category_space"><a th:href="@{/mugunghwa/category(major='금속공예', sub='문종')}">문종</a></p>
+                    <p class="category_space"><a th:href="@{/mugunghwa/category(major='금속공예', sub='주물종')}">주물종</a></p>
+                    <p class="category_space"><a th:href="@{/mugunghwa/category(major='금속공예', sub='액자')}">액자</a></p>
+                </div>
+            </details>
+        </div>
+        <div>
+            <div class="category_title"><p th:text="${param.sub}">카테고리 제목</p></div>
+            <div class="category_item_grid">
+                <div th:if="${#lists.isEmpty(products)}">
+                    <p>등록된 상품이 없습니다.</p>
+                </div>
+                <div th:unless="${#lists.isEmpty(products)}">
+                    <div cl ass="category_grid_item1" th:each="product : ${products}">
+                        <div class="category_grid_image">
+                            <a th:href="@{'/mugunghwa/detail/' + ${product.productId}}">
+                                <img th:src="@{'/prd/' + ${product.prdImage}}" alt="상품 이미지" width="150px"/>
+                            </a>
+                            <!--                            <img th:src="@{'/prd/' + ${product.prdImage}}" alt="상품 이미지" width="150px"/>-->
+                        </div>
+                        <div class="category_textbox">
+                            <a th:href="@{'/mugunghwa/detail/' + ${product.productId}}">
+                                <p class="category_text1" th:text="${product.prdName}"></p>
+                            </a>
+                            <!--                            <p class="category_text1" th:text="${product.prdName}"></p>-->
+                            <div class="category_text2"><del class="category_text3" th:text="${product.originalPrice}"></del><span class="category_text4">12%</span></div>
+                            <p class="category_text5" th:text="${product.discountPrice}"></p>
+                            <div class="category_basket"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer1_main">
+        <div id ="footer1_grid">
+            <div class="footer1_gridbox">
+                <div class="footer_logo"></div>
+            </div>
+            <div class="footer1_gridbox">
+                <p class="footer_text">상호명 : 한국만예사 ㅣ 대표자 : 윤주상 ㅣ 전화 : 051-123-4567 ㅣ 팩스 : 051-123-4567 ㅣ 이메일: wntkdrbtkd1@gmail.com</p>
+                <p class="footer_text">사무실 주소 : 서울시 종로구 삼일대로30길 37 4층 ㅣ 사업자등록번호 : 560-08-02146 ㅣ 통신판매업신고번호 : 2022-서울종로-1485호</p>
+                <p class="footer_text">매장주소 : 서울시 중구 소공로1-2 소공지하쇼핑센터 15호 ㅣ 개인정보관리책임자 : 윤주상</p>
+            </div>
+            <div class="footer1_gridbox">
+                <p class="footer_link"><a href="#">이용약관</a></p>
+                <p class="footer_link">l</p>
+                <p class="footer_link"><a href="#"> 개인정보처리방침</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/js/jquery.js"></script>
+<script src="/js/headfoot.js"></script>
+</body>
+</html>

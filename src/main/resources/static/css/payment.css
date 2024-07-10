@@ -1,0 +1,376 @@
+* {
+    margin: 0 auto;
+}
+
+.pay_main {
+    width: 1250px;
+    margin-top: 50px;
+margin-bottom: 250px;
+}
+.pay_in{
+    display: inline-block;
+}
+.pay_logo {
+    width: 150px;
+    height: 35px;
+    padding: 10px 40px;
+    margin-bottom: -26px;
+    background-image: url(../images/logo_img/mugunghwa.jpg);
+    background-size: 200px;
+    background-repeat: no-repeat;
+    margin-left: 0;
+}
+
+.pay_grade {
+    margin-top: 50px;
+}
+
+.pay_font {
+    font-size: 25px;
+    font-weight: 400;
+    margin-top: 30px;
+}
+
+.pay_black {
+    border-color: black;
+    margin-top: 30px;
+
+}
+
+.pay_color1 {
+    box-sizing: border-box;
+    width: 250px;
+    height: 55px;
+    background-color: #F4F4F4;
+    display: inline-block;
+    margin: 0;
+    text-align: left;
+    margin-bottom: -6px;
+    padding: 0 20px;
+    border-right: 1px solid #E4E4E4;
+    line-height: 55px;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.pay_color2 {
+    width: 850px;
+    height: 55px;
+    display: inline-block;
+    margin: 0;
+    text-align: left;
+    padding: 0 20px;
+    line-height: 55px;
+    display: inline-block;
+}
+
+.pay_color3 {
+    box-sizing: border-box;
+    width: 250px;
+    height: 100px;
+    background-color: #F4F4F4;
+    display: inline-block;
+    margin: 0;
+    text-align: left;
+    margin-bottom: -6px;
+    padding: 0 20px;
+    border-right: 1px solid #E4E4E4;
+    line-height: 100px;
+    font-weight: bold;
+    vertical-align: top;
+    display: inline-block;
+}
+
+.pay_color4 {
+    width: 850px;
+    height: 99px;
+    display: inline-block;
+    margin: 0;
+    text-align: left;
+    line-height: 30px;
+   padding-left: 20px;
+    margin-left: -6px;
+padding-top: 20px;
+
+}
+
+.pay_information1 {
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+}
+
+.pay_edge1 {
+    width: 1250px;
+    height: 55px;
+    border-top: 1px solid #CDCDCD;
+    border-bottom: 1px solid #E4E4E4;
+    margin-left: 0;
+    border-right: 1px solid #E4E4E4;
+    border-left: 1px solid #E4E4E4;
+}
+
+.pay_edge2 {
+    width: 1250px;
+    height: 55px;
+    margin-left: 0;
+    border-bottom: 1px solid #E4E4E4;
+    border-right: 1px solid #E4E4E4;
+    border-left: 1px solid #E4E4E4;
+}
+.pay_edge3 {
+    width: 1250px;
+    height: 100px;
+    margin-left: 0;
+    border-right: 1px solid #E4E4E4;
+    border-bottom: 1px solid #CDCDCD;
+    border-left: 1px solid #E4E4E4;
+}
+
+.pay_text_line {
+    width: 168px;
+    height: 27.5px;
+    vertical-align: bottom;
+    display: inline-block;
+}
+
+.pay_button1 {
+    width: 60px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+    margin-left: 10px;
+    cursor: pointer;
+    vertical-align: bottom;
+}
+
+.pay_information2 {
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.pay_button2 {
+    width: 120px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+    margin-left: 10px;
+    line-height: 27.5px;
+    cursor: pointer;
+    margin-top: 15px;
+    vertical-align: top;
+}
+
+.pay_color5 {
+    color: #3C7F29;
+    font-size: 20px;
+    line-height: 55px;
+    margin-left: 15px;
+}
+.pay_position1{
+    width: 1250px;
+    height: 50px;
+    border-top: 1px solid #CDCDCD;
+    border-bottom: 1px solid #E4E4E4;
+    background-color: #F4F4F4;
+    border-left: 1px solid #E4E4E4;
+    border-right: 1px solid #E4E4E4;
+}
+.pay_color6 {
+    width: 1250px;
+    border-bottom: 1px solid #E4E4E4;
+    margin-left: 0;
+    border-left: 1px solid #E4E4E4;
+    border-right: 1px solid #E4E4E4;
+display: inline-block;
+}
+.pay_po{
+    width: 400px;
+    display: inline-block;
+    line-height: 55px;
+    text-align: right;
+}
+.pay_color7 {
+    width: 700px;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 55px;
+    padding: 0 20px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.pay_position {
+    width: 400px;
+    text-align: right;
+    display: inline-block;
+    line-height: 55px;
+    vertical-align: top;
+}
+
+.pay_image1 {
+    width: 50px;
+    height: 50px;
+    vertical-align: top;
+    display: inline-block;
+    margin-left: 15px;
+    background-image: url(../images/pro_img/fruits/orange_1.jpg);
+    background-size: 100px;
+    background-repeat: no-repeat;
+}
+
+.pay_edge6 {
+    width: 1250px;
+    height: 260px;
+    margin-left: 0;
+    border-right: 1px solid #E4E4E4;
+    border-bottom: 1px solid #CDCDCD;
+    border-left: 1px solid #E4E4E4;
+}
+
+.pay_color8 {
+    box-sizing: border-box;
+    width: 250px;
+    height: 260px;
+    background-color: #F4F4F4;
+    display: inline-block;
+    margin: 0;
+    line-height: 150px;
+    margin-bottom: -6px;
+    padding: 0 20px;
+    border-right: 1px solid #E4E4E4;
+    line-height: 55px;
+    font-weight: bold;
+    vertical-align: top;
+    border-bottom: 1px solid #E4E4E4;
+}
+.pay_position2{
+    height: 70px;
+    padding-top: 20px;
+    border-bottom: 1px solid #E4E4E4;
+
+}
+.pay_position2:nth-last-child(1){
+    border-bottom: 0;
+
+
+}
+.pay_color9 {
+    width: 953px;
+    height: 260px;
+    display: inline-block;
+    margin: 0;
+    text-align: left;
+    padding: 0 20px;
+    line-height: 55px;
+    border-bottom: 1px solid #E4E4E4;
+}
+
+.pay_radio1 {
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    
+}
+
+.pay_radio2 {
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+.pay_radio3 {
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+.pay_edge4 {
+    width: 700px;
+    height: 80px;
+    border: 1px solid #E4E4E4;
+    margin-left: 0;
+    vertical-align: top;
+    background-color: #F5F6FA;
+    padding-left: 10px;
+    line-height: 80px;
+    display: inline-block;
+}
+
+.pay_edge5 {
+    width: 700px;
+    height: 80px;
+    border-left: 1px solid #E4E4E4;
+    border-right: 1px solid #E4E4E4;
+    border-bottom: 1px solid #E4E4E4;
+    margin-left: 0;
+    vertical-align: top;
+    background-color: #F5F6FA;
+    padding-left: 10px;
+    line-height: 80px;
+}
+
+.pay_select1 {
+    width: 100px;
+    height: 30px;
+    display: inline-block;
+}
+
+.pay_select2 {
+    width: 130px;
+    height: 30px;
+}
+
+.p2 {
+    display: none;
+}
+.pay_last1{
+    margin-top: 30px;
+}
+.pay_last2 {
+    margin-left: 20px;
+    color: black;
+    text-decoration:  none;
+}
+.link_color{
+    color: black;
+}
+.pay_last3 {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pay_button_beauty {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.pay_button_beauty1 {
+
+    width: 250px;
+    height: 50px;
+    background-color: white;
+    border: 1px solid  rgb(240, 118, 139);
+    color:  rgb(240, 118, 139);
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.pay_button_beauty2 {
+
+    width: 250px;
+    height: 50px;
+    background-color:  rgb(240, 118, 139);
+    border: 1px solid white;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+}

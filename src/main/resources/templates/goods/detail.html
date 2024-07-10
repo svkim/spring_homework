@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/headfoot.css">
+    <link rel="stylesheet" href="/css/detail.css">
+    <style>
+        #footer1_main {
+        margin: 300px, auto;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div id="header_color">
+        <div id="header_line">
+            <form action="#" class="main_selectbox">
+                <select name="" id="lang" class="main_select">
+                    <option value="Korea">한국어</option>
+                    <option value="USA">english</option>
+                    <option value="China">中國語</option>
+                    <option value="Russia">Русский</option>
+                </select>
+            </form>
+            <ul>
+                <li th:if="${nickname == null}"><a href="/login">로그인</a></li>
+                <li th:if="${nickname == null}"><a href="/join">회원가입</a></li>
+                <li th:if="${nickname != null}"><span th:text="${nickname}">사용자 닉네임</span></li>
+                <li th:if="${nickname != null}"><a href="/logout">로그아웃</a></li>
+                <li><a href="/customerCenter/main">고객센터</a></li>
+                <li><a href="#">배송안내</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="header_logo">
+        <div id="header_space">
+            <a href="/main/home">
+                <div id="logo_image"></div>
+            </a>
+            <div id="header_search">
+                <input type="search" id="header_type">
+                <button type="submit" id="header_button"></button>
+            </div>
+            <div id="header_icon">
+                <a href="/mypage/main"><div id="header_mypage"></div></a>
+                <div id="header_delivery"></div>
+                <div id="header_basket"></div>
+            </div>
+        </div>
+    </div>
+    <div class="main_menu">
+        <nav>
+            <ul>
+                <li>
+                    <a href="#">전통기념품</a>
+                    <ul class="submenu">
+                        <li><a th:href="@{/mugunghwa/category(major='전통기념품', sub='열쇠고리')}">열쇠고리</a></li>
+                        <li><a th:href="@{/mugunghwa/category(major='전통기념품', sub='자석')}">자석</a></li>
+                        <li><a th:href="@{/mugunghwa/category(major='전통기념품', sub='문구')}">문구</a></li>
+                        <li><a th:href="@{/mugunghwa/category(major='전통기념품', sub='카드/엽서')}">카드/엽서</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">나전칠기</a>
+                    <ul class="submenu">
+                        <li><a th:href="@{/mugunghwa/category(major='나전칠기', sub='보석함')}">보석함</a></li>
+                        <li><a th:href="@{/mugunghwa/category(major='나전칠기', sub='쌍합')}">쌍합</a></li>
+                        <li><a th:href="@{/mugunghwa/category(major='나전칠기', sub='병풍/쟁반')}">병풍/쟁반</a></li>
+                        <li><a th:href="@{/mugunghwa/category(major='나전칠기', sub='자개거울')}">자개거울</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">섬유공예</a>
+                    <ul class="submenu">
+                        <li><a th:href="@{/mugunghwa/category(major='섬유공예', sub='티셔츠')}">티셔츠</a></li>
+                        <li><a th:href="@{/mugunghwa/category(major='섬유공예', sub='한복인형')}">한복인형</a></li>
+                        <li><a th:href="@{/mugunghwa/category(major='섬유공예', sub='한복액자')}">한복액자</a></li>
+                        <li><a th:href="@{/mugunghwa/category(major='섬유공예', sub='와인커버')}">와인커버</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">목공예</a>
+                    <ul class="submenu">
+                        <li><a th:href="@{/mugunghwa/category(major='목공예', sub='전통탈')}">전통탈</a></li>
+                        <li><a th:href="@{/mugunghwa/category(major='목공예', sub='탈액자')}">탈액자</a></li>
+                        <li><a th:href="@{/mugunghwa/category(major='목공예', sub='오리원앙')}">오리원앙</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">금속공예</a>
+                    <ul class="submenu">
+                        <li><a th:href="@{/mugunghwa/category(major='금속공예', sub='문종')}">문종</a></li>
+                        <li><a th:href="@{/mugunghwa/category(major='금속공예', sub='주물종')}">주물종</a></li>
+                        <li><a th:href="@{/mugunghwa/category(major='금속공예', sub='액자')}">액자</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <hr>
+</header>
+<div class="detail_main">
+    <div class="detail_grid">
+        <div>
+
+            <!-- <form action="/mugunghwa/orderdetail" method="post">-->
+                <div class="detail_image">
+                    <img th:src="@{'/prd/' + ${register.prdImage}}" alt="상품 이미지" width="150px"/>
+                </div>
+
+                <!--            <div class="detail_image">-->
+                <!--                <img src="@{'/prd/' + ${product.prdImage}}" alt="상품 이미지" width="150px"/>-->
+                <!--            </div>-->
+        </div>
+        <div>
+            <form th:action="@{/admin/IdUser}"  method="get" onsubmit="function copySpanToInput() {
+                var spanContent = document.getElementById('result').textContent;
+                document.getElementById('quanContent').value = spanContent;
+            }
+            copySpanToInput()">
+            <div class="detail_text_box">
+                <p class="name_size1" th:text="${register.prdName}" name="ordid"></p>
+                <p class="name_size_1"><del class="main_price" id="main_pay1" th:text="${register.originalPrice}"></del></p>
+                <div>
+                    <p class="name_size3" id="main_pay2" th:text="${register.discountPrice}" ></p>
+                    <p class="name_size4" id="main_pay3">할인율 계산 필요</p>
+                </div>
+                <div class="main_space2">
+                    <p class="pay">지금 결제시
+                    <p class="pink_color"> 04~26(금) </p> 도착예정</p>
+                </div>
+                <div class="button_color">
+                    <p class="shipment" th:text="${register.prdManufacturer}"></p>
+                    <input type="button" class="button_beauty1" onclick='count("minus")' value="-">
+                        <span id="result" class="number_position">1</span>
+                    <input type="button" class="button_beauty2" onclick='count("plus")' value="+" />
+                    <p class="price_position" id="item_price" th:text="${register.discountPrice}"></p>
+                </div>
+
+                <p class="price_position2">주문금액<span id="result1" class="price_position1" th:text="${register.discountPrice}" name="pri"></span></p>
+                <div class="market_pay_position">
+                    <span>
+                    <button class="market_box1">장바구니</button>
+                            <input type="hidden" name="id" th:value="${register.productId}">
+                            <input type="hidden" id="quanContent" name="quan">
+                            <input type="hidden" name="discountPrice" th:value="${register.discountPrice}">
+                            <input type="hidden" name="prdName" th:value="${register.prdName}">
+                            <button type="submit" class="market_box2">바로구매</button>
+                    </span>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<hr class="detail_hr">
+<div class="menu">
+    <ul class="ul1">
+        <li class="box1">상세정보</li>
+        <li class="box2">구매평</li>
+    </ul>
+</div>
+<div class="detail_list_form">
+    <div class="main1">
+        <div class="detail_introduce_img"></div>
+    </div>
+    <div class="main2">
+
+        <div>
+            <h1>댓글 목록</h1>
+            <div th:if="${comments}">
+                <ul>
+                    <li th:each="comment : ${comments}">
+                        <p>작성자: <span th:text="${comment.userNickname}"></span></p>
+                        <p>내용: <span th:text="${comment.content}"></span></p>
+                        <!-- 댓글 삭제 폼 -->
+                        <form th:action="@{/comments/{id}(id=${comment.id})}" method="post">
+                            <input type="hidden" name="_method" value="delete"/>
+                            <button type="submit">삭제</button>
+                        </form>
+                        <!-- 댓글 수정 버튼 -->
+                        <button type="button" onclick="openEditPopup([[${comment.id}]], '[[${comment.content}]]')">수정</button>
+                    </li>
+                </ul>
+            </div>
+            <div th:if="${#lists.isEmpty(comments)}">
+                <p>댓글이 없습니다.</p>
+            </div>
+
+            <h2>댓글 작성</h2>
+            <form th:action="@{/comment}" method="post">
+                <input type="hidden" name="userNickname" th:value="${loggedInUserNickname}" />
+                <textarea name="content" placeholder="내용" required></textarea>
+                <button type="submit">작성</button>
+            </form>
+        </div>
+
+        <!-- 댓글 수정 팝업 -->
+        <div id="editPopup" style="display:none;">
+            <form id="editForm" th:action="@{/comments/{id}(id=${editCommentId})}" method="post">
+                <input type="hidden" name="_method" value="patch"/>
+                <input type="hidden" name="id" id="editCommentId"/>
+                <textarea name="content" id="editContent"></textarea>
+                <button type="submit">수정</button>
+            </form>
+        </div>
+
+        <script type="text/javascript">
+            function openEditPopup(commentId, content) {
+                document.getElementById('editCommentId').value = commentId;
+                document.getElementById('editContent').value = content;
+                document.getElementById('editPopup').style.display = 'block';
+            }
+        </script>
+
+<!--        <p class="detail_review">구매평</p>-->
+<!--        <p class="detail_count">총 10 개</p>-->
+<!--        <input type="submit" value="구매평 작성" class="detail_write">-->
+<!--        <hr class="gray_line">-->
+<!--        <div class="review_left">-->
+<!--            <div class="text_position">-->
+<!--                <p class="id_position">wtk******</p>-->
+<!--                <p class="day_position">2024-04-30</p>-->
+<!--                <p class="review_name_color1">상품명:당도선별 옥산사과 4~8입</p>-->
+<!--                <p class="review_name_color2">알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....</p>-->
+<!--                <div class="review_image"></div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="review_left">-->
+<!--            <div class="text_position">-->
+<!--                <p class="id_position">wtk******</p>-->
+<!--                <p class="day_position">2024-04-30</p>-->
+<!--                <p class="review_name_color1">상품명:당도선별 옥산사과 4~8입</p>-->
+<!--                <p class="review_name_color2">알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....알이 너무 작아요....</p>-->
+<!--                <div class="review_image"></div>-->
+<!--            </div>-->
+<!--        </div>-->
+    </div>
+</div>
+<footer>
+    <div id="footer1_main">
+        <div id="footer1_grid">
+            <div class="footer1_gridbox">
+                <div class="footer_logo"></div>
+            </div>
+            <div class="footer1_gridbox">
+                <p class="footer_text">상호명 : 한국만예사 ㅣ 대표자 : 윤주상  ㅣ 전화 : 051-123-4567 ㅣ
+                    팩스 : 051-123-4567 ㅣ 이메일: wntkdrbtkd1@gmail.com
+                </p>
+                <p class="footer_text">사무실 주소 : 서울시 종로구 삼일대로30길 37 4층 ㅣ 사업자등록번호 : 560-08-02146
+                    ㅣ 통신판매업신고번호 : 2022-서울종로-1485호
+                </p>
+                <p class="footer_text">
+                    매장주소 : 서울시 중구 소공로1-2 소공지하쇼핑센터 15호 ㅣ 개인정보관리책임자 : 윤주상
+                </p>
+            </div>
+            <div class="footer1_gridbox">
+                <p class="footer_link"><a href="#">이용약관</a></p>
+                <p class="footer_link">l</p>
+                <p class="footer_link"><a href="#"> 개인정보처리방침</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/js/jquery.js"></script>
+<script src="/js/headfoot.js"></script>
+<script src="/js/detail.js"></script>
+</body>
+</html>

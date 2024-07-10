@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모든 회원 목록</title>
+    <style>
+        #allusers {
+            margin: 80px 0 0 30px ;
+        }
+
+        table, tr, td {
+           border: 1px solid rgb(240, 118, 139);
+           border-collapse: collapse;
+       }
+
+       td {
+       width: 200px;
+       font-size: 12px;
+       padding: 5px;
+         text-align: left;
+       }
+
+       #allusers_t {
+       font-weight: bold;
+       }
+    </style>
+    <link rel="stylesheet" href="/css/adminMain.css">
+</head>
+
+<body>
+<div id="admin_title">관리자 페이지입니다.</div>
+
+
+<div id="admin_container">
+    <div id="admin_top_link"><a href="/main/home">[메인페이지 바로가기]</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/logout">로그아웃</a></div>
+
+    <div id=admin_body>
+        <!-- 왼쪽 -->
+        <div id="admin_left" class="customerCenter_box">
+            <a href=""><img src="/img/logo_img/mugunghwa.jpg" width="200px" id="admin_leftImg"></a>
+            <br>
+            <div id="admin_left_title">
+                <div id="title-margin">관리자 메인</div>
+            </div>
+            <div class="admin_left_1">
+                <br>
+                <div class="left_margin"><a href="">상품관리</a>
+                    <ul>
+                        <li><a href="/mugunghwa/adminregister">상품등록</a></li>
+                        <li><a href="/mugunghwa/tem">상품목록/검색</a></li>
+                        <li><a href="">상품정보수정</a></li>
+                        <li><a href="">상품삭제</a></li>
+                    </ul>
+
+                </div>
+            </div>
+            <div class="admin_left_1">
+                <br>
+                <div class="left_margin"><a href="/admin/AllUsers">회원관리</a>
+                    <ul>
+                        <li><a href="/admin/AllUsers">회원목록/검색/강퇴</a></li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="admin_left_2">
+                <br>
+                <div class="left_margin"><a href="/board/list">1대1 문의관리</a>
+                    <ul>
+                        <li><a href="/board/list">1대1 문의 목록보기</a></li>
+                        <!--                            <li><a href="">게시판 문의 답변 달기</a></li>-->
+                    </ul>
+                </div>
+            </div>
+            <!--                <div class="admin_left_3">-->
+            <!--                    <br>-->
+            <!--                    <div class="left_margin"><a href="">공지사항 관리</a>-->
+            <!--                        <ul>-->
+            <!--                            <li><a href="">공지사항 등록/수정/삭제</a></li>-->
+            <!--                        </ul>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <!--                <div class="admin_left_3">-->
+            <!--                    <br>-->
+            <!--                    <div class="left_margin"><a href="">리뷰 관리</a>-->
+            <!--                        <ul>-->
+            <!--                            <li><a href="">리뷰 보기/답글/리뷰삭제</a></li>-->
+            <!--                        </ul>-->
+            <!--                    </div>-->
+            <!--                </div>-->
+            <div class="admin_left_3">
+                <br>
+                <div class="left_margin"><a href="">주문/결제관리</a>
+                    <ul>
+                        <li><a href="">주문/결제정보</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 가운데 -->
+        <div id="admin_center" class="customerCenter_box">
+            <div id="allusers">
+                <form th:action="@{/admin/AllUsers}" method="get">
+                    <input type="text" name="searchKeyword1"  placeholder="이메일 주소로 검색">
+                    <button type="submit">검색</button>
+                </form>
+
+
+<!--                <form th:action="@{/admin/AllUsers}" method="get">-->
+<!--                    <input type="text" name="searchKeyword2"  placeholder="닉네임으로 검색">-->
+<!--                    <button type="submit">검색</button>-->
+<!--                </form>-->
+
+<!--                <form th:action="@{/admin/AllUsers}" method="get">-->
+<!--                    <input type="text" name="searchKeyword3"  placeholder="연락처로 검색">-->
+<!--                    <button type="submit">검색</button>-->
+<!--                </form>-->
+                <br>
+                <br>
+
+                <table th:each="user : ${users}" >
+                    <tr>
+
+                        <td id="allusers_t">
+                            <a th:text="'이메일: ' + ${user.email}"
+                               th:href="@{/admin/IdUser(id=${user.userId})}"></a></td>
+                        <td th:text="'휴대폰번호: ' + ${user.memPhone}"></td>
+                        <td th:text="'닉네임: ' + ${user.nickname}"></td>
+                    </tr>
+                </table>
+                <br>
+                <!--------------------------------------->
+
+                <a th:href="@{/admin/AllUsers(page=0)}"> << </a>
+
+                <!--        <a th:href="${firstPage} ? '#' : @{/board/list(page=${number})}"> 이전 </a>-->
+
+<!--                <a th:href="${users.first} ? '#' : @{/admin/AllUsers(page=${users.Number})}">prev</a>-->
+
+                <th:block th:each="page : ${#numbers.sequence(startPage, lastPage)}">
+                    <!-----------------현제페이지가 아닌경우 a테그 이동가능 (이때 page=1 부터 쿼리 스트링) ------------ param. 파라미터  쿼리 스트링 중에 특정 값 을 넣어 넘겨줌 a링크에 물려있음  ------->
+                    <a th:if="${page != firstPage}"
+                       th:href="@{/admin/AllUsers(page = ${page - 1}, searchKeyword = ${param.searchKeyword})}"
+                       th:text="${page}"></a>
+
+                    <strong th:if="${page == firstPage}" th:text="${page}" style="color : red "></strong>
+
+                </th:block>
+
+                <!--        <a th:href="${firstPage} ? '#' : @{/board/list(page=${number})}"> 다음 </a>-->
+
+                <a th:href="@{/admin/AllUsers(page=${users.TotalPages} -1 )}"> >> </a>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
