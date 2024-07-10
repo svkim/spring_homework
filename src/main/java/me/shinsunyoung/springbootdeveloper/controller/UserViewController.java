@@ -113,7 +113,7 @@ public class UserViewController {
 //        model.addAttribute("registerList", registerEntityList);
 
         Register registerEntity = registerRepository.findById(id).orElse(null);
-//        Register registerEntity = registerRepository.findById(productId).orElse(null);s
+//        Register registerEntity = registerRepository.findById(productId).orElse(null);
         model.addAttribute("register", registerEntity);
         model.addAttribute("user", userService.iduserView(id));
         model.addAttribute("quan", quan);

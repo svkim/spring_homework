@@ -1,26 +1,40 @@
 package me.shinsunyoung.springbootdeveloper.controller;
 
-import me.shinsunyoung.springbootdeveloper.domain.OrdDetail;
-import me.shinsunyoung.springbootdeveloper.dto.OrderDetailDto;
-import me.shinsunyoung.springbootdeveloper.repository.OrdDetailRepository;
+import me.shinsunyoung.springbootdeveloper.domain.Order;
+import me.shinsunyoung.springbootdeveloper.domain.Register;
+import me.shinsunyoung.springbootdeveloper.domain.User;
+import me.shinsunyoung.springbootdeveloper.dto.OrderDto;
+import me.shinsunyoung.springbootdeveloper.repository.OrdRepository;
+import me.shinsunyoung.springbootdeveloper.repository.RegisterRepository;
+import me.shinsunyoung.springbootdeveloper.repository.UserRepository;
+import me.shinsunyoung.springbootdeveloper.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.Optional;
+
 @Controller
 public class orderdetailController {
-    private final OrdDetailRepository ordRepository;
+    @Autowired
+    private RegisterRepository registerRepository;
+    @Autowired
+    private UserRepository userRepository;
+
+    private final OrdRepository ordRepository;
 
     @PostMapping("/mugunghwa/orderdetail")
-    public String ordtable(OrderDetailDto form){
+    public String ordtable(OrderDto form){
         System.out.println("TEST486:" + form.toString());
-        OrdDetail orddetail = form.toEntity();
-//        orddetail.setPrddetailid(101L);
-//        orddetail.setOrdid(1);
-        OrdDetail saved = ordRepository.save(orddetail);
+        Register register = (Register) registerRepository.findById(form.getRegisterProductId()).orElse(null);
+        User user = (User) userRepository.findById(form.getUserCustomerId()).orElse(null);
+
+        Order order = form.toEntity(user, register);
+        Order saved = ordRepository.save(order);
         return "main/home";
     }
 
-    public orderdetailController(final OrdDetailRepository ordRepository) {
+    public orderdetailController(final OrdRepository ordRepository) {
         this.ordRepository = ordRepository;
     }
 }

@@ -39,20 +39,20 @@
             </div>
         </div>
         <div class="pay_1">
-            <p class="pay_information2">받는사람 정보</p>
-            <input type="button" value="배송지변경" class="pay_button2" id="pay_click1">
+            <p class="pay_information2">회원 정보</p>
+<!--            <input type="button" value="배송지변경" class="pay_button2" id="pay_click1">-->
             <div class="pay_edge1">
                 <div class="pay_in">
                     <p class="pay_color1">이름</p>
                 </div>
-                <p class="pay_color2" th:text="${user.nickname}"></p>
+                <p class="pay_color2" th:text="${user.nickname}" id="c_nickname"></p>
             </div>
             <div class="pay_edge2">
                 <div class="pay_in">
                     <p class="pay_color1">연락처</p>
                 </div>
                 <div class="pay_in">
-                    <p class="pay_color2" th:text="${user.memPhone}"></p>
+                    <p class="pay_color2" th:text="${user.memPhone}" id="c_memPhone"></p>
                 </div>
             </div>
             <div class="pay_edge2">
@@ -60,7 +60,7 @@
                     <p class="pay_color1">우편번호</p>
                 </div>
                 <div class="pay_in">
-                    <p class="pay_color2" th:text="${user.zipcode}"></p>
+                    <p class="pay_color2" th:text="${user.zipcode}" id="c_zipcode"></p>
                 </div>
             </div>
             <div class="pay_edge2">
@@ -68,7 +68,7 @@
                     <p class="pay_color1">국가</p>
                 </div>
                 <div class="pay_in">
-                    <p class="pay_color2" th:text="${user.country}"></p>
+                    <p class="pay_color2" th:text="${user.country}" id="c_country"></p>
                 </div>
             </div>
             <div class="pay_edge2">
@@ -76,7 +76,7 @@
                     <p class="pay_color1">주/도 광역지역</p>
                 </div>
                 <div class="pay_in">
-                    <p class="pay_color2" th:text="${user.province}">wntkdrbtkd1@naver.com</p>
+                    <p class="pay_color2" th:text="${user.province}" id="c_province">wntkdrbtkd1@naver.com</p>
                 </div>
             </div>
             <div class="pay_edge2">
@@ -84,7 +84,7 @@
                     <p class="pay_color1">도시</p>
                 </div>
                 <div class="pay_in">
-                    <p class="pay_color2" th:text="${user.city}">wntkdrbtkd1@naver.com</p>
+                    <p class="pay_color2" th:text="${user.city}" id="c_city">wntkdrbtkd1@naver.com</p>
                 </div>
             </div>
             <div class="pay_edge2">
@@ -92,7 +92,75 @@
                     <p class="pay_color1">주소</p>
                 </div>
                 <div class="pay_in">
-                    <p class="pay_color2" th:text="${user.memAdd}">wntkdrbtkd1@naver.com</p>
+                    <p class="pay_color2" th:text="${user.memAdd}" id="c_memAdd">wntkdrbtkd1@naver.com</p>
+                </div>
+            </div>
+<!--            <div class="pay_edge2">-->
+<!--                <div class="pay_in">-->
+<!--                    <p class="pay_color1">배송 요청사항</p>-->
+<!--                </div>-->
+<!--                <div class="pay_in">-->
+<!--                    <div class="pay_color2"><input type="text" class="pay_text" name="odrcomment"></div>-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+
+        <form action="/mugunghwa/orderdetail" method="post" enctype="multipart/form-data">
+        <div class="pay_2">
+            <p class="pay_information2">받는사람 정보</p>
+            <input type="button" value="회원정보 사용" class="pay_button2" id="moveButton">
+            <div class="pay_edge1">
+                <div class="pay_in">
+                    <p class="pay_color1">이름</p>
+                </div>
+                <div class="pay_color2"><input type="text" class="pay_text" id="p_nickname" name="nickname"></div>
+            </div>
+            <div class="pay_edge2">
+                <div class="pay_in">
+                    <p class="pay_color1">연락처</p>
+                </div>
+                <div class="pay_in">
+                    <div class="pay_color2"><input type="text" class="pay_text" id="p_memPhone" name="memPhone"></div>
+                </div>
+            </div>
+            <div class="pay_edge2">
+                <div class="pay_in">
+                    <p class="pay_color1">우편번호</p>
+                </div>
+                <div class="pay_in">
+                    <div class="pay_color2"><input type="text" class="pay_text" id="p_zipcode" name="zipcode"></div>
+                </div>
+            </div>
+            <div class="pay_edge2">
+                <div class="pay_in">
+                    <p class="pay_color1">국가</p>
+                </div>
+                <div class="pay_in">
+                    <div class="pay_color2"><input type="text" class="pay_text" id="p_country" name="country"></div>
+                </div>
+            </div>
+            <div class="pay_edge2">
+                <div class="pay_in">
+                    <p class="pay_color1">주/도 광역지역</p>
+                </div>
+                <div class="pay_in">
+                    <div class="pay_color2"><input type="text" class="pay_text" id="p_province" name="province"></div>
+                </div>
+            </div>
+            <div class="pay_edge2">
+                <div class="pay_in">
+                    <p class="pay_color1">도시</p>
+                </div>
+                <div class="pay_in">
+                    <div class="pay_color2"><input type="text" class="pay_text" id="p_city" name="city"></div>
+                </div>
+            </div>
+            <div class="pay_edge2">
+                <div class="pay_in">
+                    <p class="pay_color1">주소</p>
+                </div>
+                <div class="pay_in">
+                    <div class="pay_color2"><input type="text" class="pay_text" id="p_memAdd" name="memAdd"></div>
                 </div>
             </div>
             <div class="pay_edge2">
@@ -101,72 +169,6 @@
                 </div>
                 <div class="pay_in">
                     <div class="pay_color2"><input type="text" class="pay_text" name="odrcomment"></div>
-                </div>
-            </div>
-        </div>
-        <div class="pay_2">
-            <p class="pay_information2">받는사람 정보</p>
-            <input type="button" value="기존배송지" class="pay_button2" id="pay_click2">
-            <div class="pay_edge1">
-                <div class="pay_in">
-                    <p class="pay_color1">이름</p>
-                </div>
-                <div class="pay_color2"><input type="text" class="pay_text"></div>
-            </div>
-            <div class="pay_edge2">
-                <div class="pay_in">
-                    <p class="pay_color1">연락처</p>
-                </div>
-                <div class="pay_in">
-                    <div class="pay_color2"><input type="text" class="pay_text"></div>
-                </div>
-            </div>
-            <div class="pay_edge2">
-                <div class="pay_in">
-                    <p class="pay_color1">우편번호</p>
-                </div>
-                <div class="pay_in">
-                    <div class="pay_color2"><input type="text" class="pay_text"></div>
-                </div>
-            </div>
-            <div class="pay_edge2">
-                <div class="pay_in">
-                    <p class="pay_color1">국가</p>
-                </div>
-                <div class="pay_in">
-                    <div class="pay_color2"><input type="text" class="pay_text"></div>
-                </div>
-            </div>
-            <div class="pay_edge2">
-                <div class="pay_in">
-                    <p class="pay_color1">주/도 광역지역</p>
-                </div>
-                <div class="pay_in">
-                    <div class="pay_color2"><input type="text" class="pay_text"></div>
-                </div>
-            </div>
-            <div class="pay_edge2">
-                <div class="pay_in">
-                    <p class="pay_color1">도시</p>
-                </div>
-                <div class="pay_in">
-                    <div class="pay_color2"><input type="text" class="pay_text"></div>
-                </div>
-            </div>
-            <div class="pay_edge2">
-                <div class="pay_in">
-                    <p class="pay_color1">주소</p>
-                </div>
-                <div class="pay_in">
-                    <div class="pay_color2"><input type="text" class="pay_text"></div>
-                </div>
-            </div>
-            <div class="pay_edge2">
-                <div class="pay_in">
-                    <p class="pay_color1">배송 요청사항</p>
-                </div>
-                <div class="pay_in">
-                    <div class="pay_color2"><input type="text" class="pay_text"></div>
                 </div>
             </div>
         </div>
@@ -223,9 +225,10 @@
         </div>
         <div class="pay_edge6">
             <p class="pay_color8">결제방법</p>
-            <div class="pay_color9"><input type="radio" class="pay_radio1" name="pay_radio" checked>신용/체크카드<input
-                    type="radio" class="pay_radio2" name="pay_radio">휴대폰
-                <input type="radio" class="pay_radio3" name="pay_radio">무통장입금(가상계좌)
+            <div class="pay_color9">
+                <input type="radio" class="pay_radio1" name="odrmethod" value="1" checked>신용/체크카드
+                <input type="radio" class="pay_radio2" name="odrmethod" value="2">휴대폰
+                <input type="radio" class="pay_radio3" name="odrmethod" value="3">무통장입금(가상계좌)
                 <div class="p1">
                     <p class="pay_edge4">카드선택<!-- 무통장입금 안해놨음 휴대폰도 db에 없다고 설명들었움 다 빼도되요 -->
                         <select id="pay_card" class="pay_select1">
@@ -262,18 +265,40 @@
             <p class="pay_last3">위 주문 내용을 확인 하였으며, 회원 본인은 개인정보 이용 및 결제에 동의합니다.</p>
             <div class="pay_button_beauty">
 <!--                <button type="submit" class="pay_button_beauty1">결제취소</button>-->
-                <form action="/mugunghwa/orderdetail" method="post" enctype="multipart/form-data">
-                    <input th:value="${quan}" name="quan"/>
-                    <input th:value="${totalPrice}" name="pri"/>
-                    <input th:value="${register.productId}" name="productid"/>
+<!--                <form action="/mugunghwa/orderdetail" method="post" enctype="multipart/form-data">-->
+                <input th:value="${quan}" name="odrcount"/>
+                <input th:value="${totalPrice}" name="odrtotalprice"/>
+                <input th:value="${register.productId}" name="registerProductId"/>
+                <input th:value="${user.userId}" name="userCustomerId"/>
                 <button class="pay_button_beauty1">결제취소</button>
                 <button type="submit" class="pay_button_beauty2">결제확인</button>
             </div>
         </div>
      </div>
-</div>
 </form>
 <script src="/js/jquery.js"></script>
 <script src="/js/payment.js"></script>
+<script>
+    document.getElementById('moveButton').addEventListener('click', function() {
+        // p 태그의 텍스트를 가져옴
+        var textNickname = document.getElementById('c_nickname').innerText;
+        var textMemPhone = document.getElementById('c_memPhone').innerText;
+        var textZipCode = document.getElementById('c_zipcode').innerText;
+        var textCountry = document.getElementById('c_country').innerText;
+        var textProvince = document.getElementById('c_province').innerText;
+        var textCity = document.getElementById('c_city').innerText;
+        var textMemAdd = document.getElementById('c_memAdd').innerText;
+
+        // input 태그에 텍스트를 설정
+        document.getElementById('p_nickname').value = textNickname;
+        document.getElementById('p_memPhone').value = textMemPhone;
+        document.getElementById('p_zipcode').value = textZipCode;
+        document.getElementById('p_country').value = textCountry;
+        document.getElementById('p_province').value = textProvince;
+        document.getElementById('p_city').value = textCity;
+        document.getElementById('p_memAdd').value = textMemAdd;
+    });
+
+</script>
 </body>
 </html>
